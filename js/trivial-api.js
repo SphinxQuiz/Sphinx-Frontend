@@ -24,7 +24,6 @@ async function displayData() {
     fetch(url)
       .then((reponse) => reponse.json())
       .then((result) => {
-        console.log(result);
         categorie_label.innerText = "Categorie: " + result.results[0].category;
         difficulty_tag_label.innerText =
           "Difficulty: " + result.results[0].difficulty;
@@ -63,5 +62,6 @@ function htmlEntities(str) {
     .replace(/&gt;/g, ">")
     .replace(/&quot;/g, '"')
     .replace(/&#039;/g, "'")
+    .replace(/&ouml;/g, "ö")
     .replace(/&rsquo;/g, "’");
 }

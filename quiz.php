@@ -4,16 +4,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sphinx</title>
-    <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/quiz.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/navbar.css"/>
+
 
 
     <!-- Scripts --> 
 
   </head>
+  <?php include "includes/navbar.php"?>
+
   <body onload="displayData()">
-    <?php include "includes/navbar.php"?>
 
     <div id = "main-div" class="centered">
     <h2 id="question"></h2>
@@ -27,6 +29,8 @@
     <div id ="loading-div" class="gif-div">
         <img id = "loading-gif" src="assets/loading-gif.gif" alt="loading gif">
     </div>
+
+    
 
   </body>
   <script src="js/trivial-api.js"></script>
