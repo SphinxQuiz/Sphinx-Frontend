@@ -32,7 +32,7 @@ function buttonFill(type) {
     for (let b of buttons) {
       let index = Math.floor(Math.random() * questionList.length);
       console.log(index);
-      b.innerText = questionList[index];
+      b.innerText = htmlEntities(questionList[index]);
       questionList.splice(index, 1);
     }
   } else {
@@ -48,5 +48,6 @@ function htmlEntities(str) {
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
     .replace(/&quot;/g, '"')
-    .replace(/&#039;/g, "'");
+    .replace(/&#039;/g, "'")
+    .replace(/&rsquo;/g, "’");
 }

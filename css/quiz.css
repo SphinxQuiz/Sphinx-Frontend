@@ -9,12 +9,12 @@
 }
 
 .quiz-button {
-  padding: 50px 70px;
-  margin: 50px;
+  padding: 50px 40px;
+  margin: 40px;
   border-radius: 10px;
   background-color: blueviolet;
   color: whitesmoke;
-  font-size: 20px;
+  font-size: 25px;
   width: 350px;
 }
 
@@ -37,12 +37,12 @@
     font-size: 40px;
   }
   .quiz-button {
-    padding: 20px 50px;
+    padding: 20px 40px;
     margin: 20px;
     border-radius: 10px;
     background-color: blueviolet;
     color: whitesmoke;
-    font-size: 15px;
+    font-size: 20px;
     width: 200px;
   }
 }
