@@ -3,7 +3,7 @@ const categorie_label = document.getElementById("categorie");
 const difficulty_tag_label = document.getElementById("difficulty-tag");
 const question_label = document.getElementById("question");
 const buttons = document.getElementsByClassName("quiz-button");
-
+const ligne2 = document.getElementById("ligne2");
 let questionList = [];
 
 async function displayData() {
@@ -35,6 +35,10 @@ function buttonFill(type) {
       b.innerText = questionList[index];
       questionList.splice(index, 1);
     }
+  } else {
+    ligne2.style.display = "none";
+    buttons[0].innerText = "Vrai";
+    buttons[1].innerText = "Faux";
   }
 }
 

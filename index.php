@@ -23,8 +23,8 @@
       <h3 id="categorie"></h3>
       <h4 id="difficulty-tag"></h4>
       <div class="centered button-div">
-        <div class="ligne"><button class="quiz-button">Reponse A</button><button class="quiz-button">Reponse B</button></div>
-        <div class="ligne"><button class="quiz-button">Reponse A</button><button class="quiz-button">Reponse B</button></div>
+        <div id="ligne1" class="ligne"><button class="quiz-button">Reponse A</button><button class="quiz-button">Reponse B</button></div>
+        <div id="ligne2" class="ligne"><button class="quiz-button">Reponse A</button><button class="quiz-button">Reponse B</button></div>
       </div>
     </div>
 
