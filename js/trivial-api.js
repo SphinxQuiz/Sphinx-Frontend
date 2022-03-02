@@ -12,9 +12,20 @@ async function displayData() {
         categorie_label.innerText = "Categorie: " + result.results[0].category;
         difficulty_tag_label.innerText =
           "Difficulty: " + result.results[0].difficulty;
-        question_label.innerText = result.results[0].question;
+        let questionText = result.results[0].question;
+        questionText = htmlEntities(questionText);
+        question_label.innerText = questionText;
       });
   } catch (error) {
     console.log(error);
   }
+}
+
+function htmlEntities(str) {
+  return String(str)
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'");
 }
