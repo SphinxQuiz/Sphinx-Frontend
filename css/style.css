@@ -1,12 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Shizuru&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hubballi&family=Shizuru&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
+  font-family: "Hubballi";
 }
 
 body {
-  background-color: whitesmoke;
+  background-color: #f7f7f7;
 }
 
 .centered {
@@ -19,6 +21,26 @@ body {
 
 .ligne {
   display: flex;
-  justify-content: space-around;
   flex-direction: row;
+  justify-content: space-between;
+}
+
+.gif-div {
+  display: block;
+}
+
+#loading-gif {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+
+@media only screen and (max-width: 800px) {
+  #loading-gif {
+    top: 45%;
+
+    width: 80%;
+  }
 }
