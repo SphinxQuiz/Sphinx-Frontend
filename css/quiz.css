@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 #categorie {
   margin: 4vh 0;
   font-size: 20px;
@@ -16,13 +20,15 @@
   color: whitesmoke;
   font-size: 25px;
   width: 350px;
+  outline: inherit;
+  border: none;
 }
 
 .quiz-button:hover {
-  transition: ease-in-out 0.05s;
+  transition: cubic-bezier(1, 0, 0, 1) 0.07s;
 
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .button-div {

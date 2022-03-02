@@ -5,7 +5,6 @@ const question_label = document.getElementById("question");
 const buttons = document.getElementsByClassName("quiz-button");
 const ligne2 = document.getElementById("ligne2");
 let questionList = [];
-
 async function displayData() {
   try {
     fetch(url)
@@ -31,8 +30,8 @@ function buttonFill(type) {
   if (type === "multiple") {
     for (let b of buttons) {
       let index = Math.floor(Math.random() * questionList.length);
-      console.log(index);
       b.innerText = htmlEntities(questionList[index]);
+      b.value = htmlEntities(questionList[index]);
       questionList.splice(index, 1);
     }
   } else {
