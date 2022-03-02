@@ -1,21 +1,5 @@
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sphinx</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/navbar.css" />
-
-    <!-- CDN-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <nav class="navbar">
-      <h1 class="logo">Spinx</h1>
+<nav class="navbar">
+      <h1 class="logo">Sphinx</h1>
       <ul class="desktop-list">
         <li>
           <a href="#"><i class="fa-solid fa-medal icons-white"></i></a>
@@ -39,5 +23,3 @@
         </li>
       </ul>
     </nav>
-  </body>
-</html>
