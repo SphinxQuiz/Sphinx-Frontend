@@ -4,14 +4,44 @@
 }
 
 #question {
-  width: 70%;
-  margin-top: 10vh;
+  margin-top: 7vh;
   font-size: 40px;
+}
+
+.quiz-button {
+  padding: 50px 70px;
+  margin: 50px;
+  border-radius: 10px;
+  background-color: blueviolet;
+  color: whitesmoke;
+  font-size: 20px;
+  width: 350px;
+}
+
+.quiz-button:hover {
+  transition: ease-in-out 0.05s;
+
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.button-div {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 800px) {
   #question {
     margin-top: 3vh;
     font-size: 40px;
+  }
+  .quiz-button {
+    padding: 20px 50px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: blueviolet;
+    color: whitesmoke;
+    font-size: 15px;
   }
 }
