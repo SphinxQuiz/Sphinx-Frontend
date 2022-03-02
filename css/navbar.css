@@ -4,8 +4,9 @@
 
 .logo {
   color: white;
-  font-size: 30px;
+  font-size: 40px;
   margin-left: 100px;
+  font-family: "Shizuru", cursive;
 }
 
 .navbar {
@@ -14,7 +15,6 @@
   width: 100%;
   align-items: center;
   background-color: blueviolet;
-  padding: 20px;
 }
 
 a {

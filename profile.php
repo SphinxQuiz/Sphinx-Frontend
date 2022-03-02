@@ -12,13 +12,14 @@
 <body>
     <?php include "includes/navbar.php"?>
     <div class="centered">
-        <h1 id="profile-title">Bedrock</h1>
-        <div class="ligne">
-            <h2 class="label">Elo : 210</h2>
-            <h2 class="label">Ratio : 0.8</h2>
+        <div class="container">
+            <h1 id="profile-title">Bedrock</h1>
+            <div class="ligne">
+                <h2 class="label">Elo : 210</h2>
+                <h2 class="label">Ratio : 0.8</h2>
+            </div>
+            <h2 class="label">Max streak : </h2>
         </div>
-        <h2 class="label">Max streak : </h2>
-
     </div>
 </body>
 </html>

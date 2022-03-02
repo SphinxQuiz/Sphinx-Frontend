@@ -5,8 +5,22 @@ const question_label = document.getElementById("question");
 const buttons = document.getElementsByClassName("quiz-button");
 const ligne2 = document.getElementById("ligne2");
 let questionList = [];
+const animation = document.getElementById("loading-div");
+const main_div = document.getElementById("main-div");
+
+function showAnimation() {
+  main_div.style.display = "none";
+  animation.style.display = "block";
+}
+
+function hideAnimation() {
+  main_div.style.display = "block";
+  animation.style.display = "none";
+}
+
 async function displayData() {
   try {
+    showAnimation();
     fetch(url)
       .then((reponse) => reponse.json())
       .then((result) => {
@@ -20,6 +34,7 @@ async function displayData() {
         questionList.push(result.results[0].correct_answer);
         questionList = questionList.concat(result.results[0].incorrect_answers);
         buttonFill(result.results[0].type);
+        hideAnimation();
       });
   } catch (error) {
     console.log(error);
