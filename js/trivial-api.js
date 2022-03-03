@@ -7,7 +7,8 @@ const ligne2 = document.getElementById("ligne2");
 let questionList = [];
 const animation = document.getElementById("loading-div");
 const main_div = document.getElementById("main-div");
-let a = "";
+let a;
+let questionType;
 function showAnimation() {
   main_div.style.display = "none";
   animation.style.display = "block";
@@ -42,6 +43,7 @@ async function displayData() {
 }
 
 function buttonFill(type) {
+  questionType = type;
   if (type === "multiple") {
     for (let b of buttons) {
       let index = Math.floor(Math.random() * questionList.length);
@@ -51,6 +53,8 @@ function buttonFill(type) {
     }
   } else {
     ligne2.style.display = "none";
+    buttons[0].value = "True";
+    buttons[1].value = "False";
     buttons[0].innerText = "Vrai";
     buttons[1].innerText = "Faux";
   }
@@ -77,7 +81,7 @@ document.querySelectorAll("button").forEach((button) => {
       button.classList.add("apply-shake");
 
       button.style.background = "red";
-      reveal();
+      reveal(button);
     }
     disableButtons();
   });
@@ -90,10 +94,18 @@ function disableButtons() {
   });
 }
 
-function reveal() {
-  document.querySelectorAll("button").forEach((button) => {
-    if (button.value === a) {
-      button.style.background = "green";
+function reveal(whichButton) {
+  if (questionType === "boolean") {
+    if (whichButton.value == "True") {
+      document.querySelectorAll("button")[1].style.background = "green";
+    } else {
+      document.querySelectorAll("button")[0].style.background = "green";
     }
-  });
+  } else {
+    document.querySelectorAll("button").forEach((button) => {
+      if (button.value === a) {
+        button.style.background = "green";
+      }
+    });
+  }
 }
