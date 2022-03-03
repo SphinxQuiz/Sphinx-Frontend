@@ -7,7 +7,7 @@ const ligne2 = document.getElementById("ligne2");
 let questionList = [];
 const animation = document.getElementById("loading-div");
 const main_div = document.getElementById("main-div");
-
+let a = "";
 function showAnimation() {
   main_div.style.display = "none";
   animation.style.display = "block";
@@ -33,6 +33,7 @@ async function displayData() {
         questionList.push(result.results[0].correct_answer);
         questionList = questionList.concat(result.results[0].incorrect_answers);
         buttonFill(result.results[0].type);
+        a = result.results[0].correct_answer;
         hideAnimation();
       });
   } catch (error) {
@@ -64,4 +65,35 @@ function htmlEntities(str) {
     .replace(/&#039;/g, "'")
     .replace(/&ouml;/g, "ö")
     .replace(/&rsquo;/g, "’");
+}
+
+document.querySelectorAll("button").forEach((button) => {
+  button.addEventListener("click", (b) => {
+    const value = button.value;
+    if (a === value) {
+      button.style.background = "green";
+      console.log("bonne reponse");
+    } else {
+      button.classList.add("apply-shake");
+
+      button.style.background = "red";
+      reveal();
+    }
+    disableButtons();
+  });
+});
+
+function disableButtons() {
+  document.querySelectorAll("button").forEach((button) => {
+    button.disabled = true;
+    button.classList.remove("hoverScale-up");
+  });
+}
+
+function reveal() {
+  document.querySelectorAll("button").forEach((button) => {
+    if (button.value === a) {
+      button.style.background = "green";
+    }
+  });
 }

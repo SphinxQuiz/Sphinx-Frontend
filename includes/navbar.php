@@ -18,7 +18,7 @@
 </head>
 
 <nav class="navbar">
-      <h1 class="logo">Sphinx</h1>
+      <h1 class="logo notranslate">Sphinx</h1>
       <ul class="desktop-list">
         <li>
           <a href="#"><i class="fa-solid fa-medal icons-white"></i></a>
