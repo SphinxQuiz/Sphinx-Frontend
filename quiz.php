@@ -21,6 +21,9 @@
     <h2 id="question"></h2>
       <h3 id="categorie"></h3>
       <h4 id="difficulty-tag"></h4>
+      <div class="centered">
+        <button id="next-question" onclick="location.reload();">Next question</button>
+      </div>
       <div class="centered button-div">
         <div id="ligne1" class="ligne"><button class="quiz-button hoverScale-up">Reponse A</button><button class="quiz-button hoverScale-up">Reponse B</button></div>
         <div id="ligne2" class="ligne"><button class="quiz-button hoverScale-up">Reponse A</button><button class="quiz-button hoverScale-up">Reponse B</button></div>
