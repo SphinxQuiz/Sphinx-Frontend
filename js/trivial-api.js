@@ -78,6 +78,8 @@ document.querySelectorAll(".quiz-button").forEach((button) => {
     const value = button.value;
     if (a === value) {
       button.style.background = "green";
+      displayNextButton();
+
       console.log("bonne reponse");
     } else {
       button.classList.add("apply-shake");
