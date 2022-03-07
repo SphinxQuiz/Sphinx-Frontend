@@ -9,6 +9,8 @@ const animation = document.getElementById("loading-div");
 const main_div = document.getElementById("main-div");
 let a;
 let questionType;
+let next_button = document.getElementById("next-question");
+
 function showAnimation() {
   main_div.style.display = "none";
   animation.style.display = "block";
@@ -71,11 +73,13 @@ function htmlEntities(str) {
     .replace(/&rsquo;/g, "’");
 }
 
-document.querySelectorAll("button").forEach((button) => {
+document.querySelectorAll(".quiz-button").forEach((button) => {
   button.addEventListener("click", (b) => {
     const value = button.value;
     if (a === value) {
       button.style.background = "green";
+      displayNextButton();
+
       console.log("bonne reponse");
     } else {
       button.classList.add("apply-shake");
@@ -88,7 +92,7 @@ document.querySelectorAll("button").forEach((button) => {
 });
 
 function disableButtons() {
-  document.querySelectorAll("button").forEach((button) => {
+  document.querySelectorAll(".quiz-button").forEach((button) => {
     button.disabled = true;
     button.classList.remove("hoverScale-up");
   });
@@ -97,9 +101,9 @@ function disableButtons() {
 function reveal(whichButton) {
   if (questionType === "boolean") {
     if (whichButton.value == "True") {
-      document.querySelectorAll("button")[1].style.background = "green";
+      document.querySelectorAll(".quiz-button")[1].style.background = "green";
     } else {
-      document.querySelectorAll("button")[0].style.background = "green";
+      document.querySelectorAll(".quiz-button")[0].style.background = "green";
     }
   } else {
     document.querySelectorAll("button").forEach((button) => {
@@ -108,4 +112,10 @@ function reveal(whichButton) {
       }
     });
   }
+  displayNextButton();
+}
+
+function displayNextButton() {
+  categorie_label.style.display = "none";
+  next_button.style.display = "block";
 }

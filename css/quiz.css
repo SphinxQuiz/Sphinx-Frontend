@@ -37,6 +37,28 @@ body {
   transform: scale(1.05);
 }
 
+#next-question {
+  display: none;
+  margin-bottom: 20px;
+  margin-top: 40px;
+
+  padding: 15px 10px;
+  border-radius: 5px;
+
+  background-color: grey;
+  color: whitesmoke;
+  font-size: 20px;
+  width: 200px;
+  outline: inherit;
+  border: none;
+}
+
+#next-question:hover {
+  transition: cubic-bezier(1, 0, 0, 1) 0.1s;
+  cursor: pointer;
+  transform: scale(1.07);
+}
+
 .button-div {
   width: 100%;
   margin-top: 30px;
