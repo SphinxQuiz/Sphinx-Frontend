@@ -21,11 +21,11 @@
 
     <div class="centered">
       <h1 class="logo-index">Sphinx</h1>
-      <form action="http://localhost:3000/api/auth/signup" method="POST">
+      <form action="http://localhost:3000/api/auth/signup" method="post">
         <div class="centered">
             <div class="form-item">
                 <h1 class="form-label">Username</h1>
-                <input class="form-input"type="text" placeholder="Enter Username" name="uname" required>  
+                <input class="form-input"type="text" placeholder="Enter Username" name="username" required>  
             </div>
             <div class="form-item">
                 <h1 class="form-label">Email</h1>
