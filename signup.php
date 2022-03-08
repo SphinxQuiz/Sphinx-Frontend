@@ -3,10 +3,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sphinx</title>
+    <title>Signup</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/sign-form.css" />
+
 
 
     <!-- Scripts --> 
@@ -20,7 +21,24 @@
 
     <div class="centered">
       <h1 class="logo-index">Sphinx</h1>
-      <div class="centered"></div>
+      <form action="http://localhost:3000/api/auth/signup" method="POST">
+        <div class="centered">
+            <div class="form-item">
+                <h1 class="form-label">Username</h1>
+                <input class="form-input"type="text" placeholder="Enter Username" name="uname" required>  
+            </div>
+            <div class="form-item">
+                <h1 class="form-label">Email</h1>
+                <input class="form-input"type="text" placeholder="Enter Email" name="email" required>  
+            </div>
+            <div class="form-item">
+                <h1 class="form-label">Password</h1>
+                <input class="form-input"type="text" placeholder="Enter Password" name="password" required>  
+            </div>
+
+            <button type="submit">Login</button>
+        </div>
+      </form>
     </div>
 
   </body>
