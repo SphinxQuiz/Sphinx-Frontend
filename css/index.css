@@ -1,3 +1,14 @@
+.background-index {
+  overflow: hidden;
+  background-color: blueviolet;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    blueviolet 46%,
+    #ff70f6 100%
+  );
+}
+
 .index-button {
   padding: 20px 0px;
   margin: 100px;
@@ -8,6 +19,7 @@
   width: 250px;
   outline: inherit;
   border: none;
+  text-decoration: none;
 }
 
 .logo-index {
@@ -16,16 +28,6 @@
   color: whitesmoke;
   font-size: 70px;
   margin: auto;
-}
-
-.background-index {
-  background-color: #4158d0;
-  background-image: linear-gradient(
-    43deg,
-    #4158d0 0%,
-    blueviolet 46%,
-    #ff70f6 100%
-  );
 }
 
 @media only screen and (max-width: 800px) {

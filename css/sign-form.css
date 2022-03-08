@@ -1,17 +1,31 @@
 .form-item {
   color: whitesmoke;
-  margin: 20px;
+  margin: 15px;
 }
 
 .form-label {
   margin: 20px;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 .form-input {
   width: 400px;
   height: 40px;
+  font-size: 20px;
   text-align: center;
   border-radius: 10px;
   border: none;
+}
+
+.form-submit {
+  padding: 20px 0px;
+  margin: 80px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: blueviolet;
+  font-size: 25px;
+  width: 250px;
+  outline: inherit;
+  border: none;
+  text-decoration: none;
 }

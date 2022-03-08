@@ -36,7 +36,7 @@
                 <input class="form-input"type="text" placeholder="Enter Password" name="password" required>  
             </div>
 
-            <button type="submit">Login</button>
+            <button class = "form-submit" type="submit">Login</button>
         </div>
       </form>
     </div>
