@@ -1,0 +1,41 @@
+.index-button {
+  padding: 20px 0px;
+  margin: 100px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: blueviolet;
+  font-size: 25px;
+  width: 250px;
+  outline: inherit;
+  border: none;
+}
+
+.logo-index {
+  font-family: "Shizuru";
+
+  color: whitesmoke;
+  font-size: 70px;
+  margin: auto;
+}
+
+.background-index {
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    blueviolet 46%,
+    #ff70f6 100%
+  );
+}
+
+@media only screen and (max-width: 800px) {
+  .index-button {
+    margin: 40px;
+  }
+
+  .ligne {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

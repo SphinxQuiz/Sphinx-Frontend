@@ -19,6 +19,18 @@ body {
   text-align: center;
 }
 
+.both-centered-parent {
+  position: relative;
+  height: 100vh;
+}
+
+.both-centered-child-index-button {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .ligne {
   display: flex;
   flex-direction: row;

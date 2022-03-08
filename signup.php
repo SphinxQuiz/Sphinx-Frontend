@@ -20,11 +20,7 @@
 
     <div class="centered">
       <h1 class="logo-index">Sphinx</h1>
-      <div class="both-centered-parent">
-        <div class="both-centered-child-index-button">
-          <div id="ligne1" class="ligne"><a href = "./signup.php" class="index-button hoverScale-up">Signup</a><a class="index-button hoverScale-up">Login</a></div>
-        </div>
-      </div>
+      <div class="centered"></div>
     </div>
 
   </body>

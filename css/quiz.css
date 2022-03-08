@@ -32,7 +32,7 @@ body {
 }
 
 .hoverScale-up:hover {
-  transition: cubic-bezier(1, 0, 0, 1) 0.1s;
+  transition: ease-in-out 0.1s;
   cursor: pointer;
   transform: scale(1.05);
 }
