@@ -10,10 +10,13 @@
 
 
 
-    <!-- Scripts --> 
+    <!-- Scripts -->
+    <script src="./js/loadFile.js"></script> 
 
   </head>
-  <?php include "includes/navbar.php"?>
+
+  <body onload='displayData(), loadHTML("nav-include", "navbar")'>
+    <div id="nav-include"></div>
 
   <body onload="displayData()">
 
