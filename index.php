@@ -15,10 +15,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
   </head>
-  <body class="background-index">
+  <body class="background-index" onload="displayQuestionIndex()">
 
-    <div class="centered">
+    <div class="centered" >
       <h1 class="logo-index">Sphinx</h1>
+      <h3 id="question-index-label" class="small-title">Learn with fun !</h3>
       <div class="both-centered-parent">
         <div class="both-centered-child-index-button">
           <div id="ligne1" class="ligne"><a href = "./signup.php" class="index-button hoverScale-up">Signup</a><a class="index-button hoverScale-up">Login</a></div>

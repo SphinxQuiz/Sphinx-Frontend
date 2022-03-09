@@ -20,7 +20,7 @@
   <body class="background-index">
 
     <div class="centered">
-      <h1 class="logo-index">Sphinx</h1>
+      <a class = "hoverScale-up" href="./index.php"><h1 class="logo-index">Sphinx</h1></a>
       <form action="http://localhost:3000/api/auth/signup" method="post">
         <div class="centered">
             <div class="form-item">
@@ -36,7 +36,12 @@
                 <input class="form-input"type="text" placeholder="Enter Password" name="password" required>  
             </div>
 
-            <button class = "form-submit" type="submit">Login</button>
+            <div class="form-item">
+                <h1 class="form-label">Confirm Password</h1>
+                <input class="form-input"type="text" placeholder="Enter Password" name="confirm_password" required>  
+            </div>
+
+            <button class = "form-submit hoverScale-up" type="submit" >Signup</button>
         </div>
       </form>
     </div>
