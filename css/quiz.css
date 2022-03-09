@@ -31,12 +31,6 @@ body {
   border: none;
 }
 
-.hoverScale-up:hover {
-  transition: cubic-bezier(1, 0, 0, 1) 0.1s;
-  cursor: pointer;
-  transform: scale(1.05);
-}
-
 #next-question {
   display: none;
   margin-bottom: 20px;

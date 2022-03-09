@@ -11,12 +11,34 @@ body {
   background-color: #f7f7f7;
 }
 
+.hoverScale-up {
+  text-decoration: none;
+}
+
+.hoverScale-up:hover {
+  transition: ease-in-out 0.1s;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
 .centered {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
+}
+
+.both-centered-parent {
+  position: relative;
+  height: 100vh;
+}
+
+.both-centered-child-index-button {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .ligne {

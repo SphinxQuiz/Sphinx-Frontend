@@ -119,3 +119,18 @@ function displayNextButton() {
   categorie_label.style.display = "none";
   next_button.style.display = "block";
 }
+
+function displayQuestionIndex() {
+  const title = document.getElementById("question-index-label");
+  try {
+    fetch(url)
+      .then((reponse) => reponse.json())
+      .then((result) => {
+        title.innerText = '"' + htmlEntities(result.results[0].question) + '"';
+      });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+setInterval(displayQuestionIndex, 5000);
