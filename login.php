@@ -21,12 +21,9 @@
 
     <div class="centered">
       <a class = "hoverScale-up" href="./index.php"><h1 class="logo-index">Sphinx</h1></a>
-      <form action="http://localhost:3000/api/auth/signup" method="post">
+      <form action="http://localhost:3000/api/auth/login" method="post">
         <div class="centered">
-            <div class="form-item">
-                <h1 class="form-label">Username</h1>
-                <input class="form-input"type="text" placeholder="Enter Username" name="username" required>  
-            </div>
+
             <div class="form-item">
                 <h1 class="form-label">Email</h1>
                 <input class="form-input"type="text" placeholder="Enter Email" name="email" required>  
@@ -36,14 +33,8 @@
                 <input class="form-input"type="text" placeholder="Enter Password" name="password" required>  
             </div>
 
-            <div class="form-item">
-                <h1 class="form-label">Confirm Password</h1>
-                <input class="form-input"type="text" placeholder="Enter Password" name="confirm_password" required>  
-            </div>
-
-            <button class = "form-submit hoverScale-up" type="submit" >Signup</button>
-            <a href="./login.php"><p>Already have an account ?</p></a>
-
+            <button class = "form-submit hoverScale-up" type="submit" >Login</button>
+            <a href="./signup.php"><p>Create an account</p></a>
         </div>
       </form>
     </div>
