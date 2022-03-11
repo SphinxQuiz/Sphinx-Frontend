@@ -15,12 +15,12 @@
 
   </head>
 
-  <body onload='displayData(), loadHTML("nav-include", "navbar")'>
-    <div id="nav-include"></div>
 
-  <body onload="displayData()">
-
+    <?php include "./includes/navbar.php"?>
+    <body onload='displayData()'>
+      
     <div id = "main-div" class="centered">
+
     <h2 id="question"></h2>
       <h3 id="categorie"></h3>
       <h4 id="difficulty-tag"></h4>

@@ -15,7 +15,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
   </head>
-  <body class="background-index" onload="displayQuestionIndex()">
+  <body class="background-index" onload="">
 
     
     <div class="centered" >

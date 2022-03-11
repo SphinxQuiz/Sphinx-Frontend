@@ -3,7 +3,13 @@ function loadHTML(id, filename){
     let element = document.getElementById(id)
     let file = filename;
 
+    
+    element.innerHTML = '<object data="./includes/navbar.html">'
+    console.log('test')
+    /*
     if(file){
+        console.log("test")
+
         xhttp = new XMLHttpRequest()
         xhttp.onreadystatechange = function(){
             if(this.readyState == 4){
@@ -19,5 +25,6 @@ function loadHTML(id, filename){
             return
         }
     }
+    */
 
 }
