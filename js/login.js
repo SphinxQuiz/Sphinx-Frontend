@@ -3,18 +3,14 @@ xhr = new XMLHttpRequest()
 const email = document.getElementById("emailInput")
 const password = document.getElementById("passwordInput")
 
-const alertBox = document.getElementById("alertBox")
-const alertText = document.getElementById("alertText")
 
 
 const urlLogin = apiUrl + "/api/auth/login";
 
 
 function login(){
-    if(!email.value|| !password){
+    if(!email.value|| !password.value){
         showMessage("Veuillez renseigner tout les champs")
-        console.log(email.value)
-        console.log(password.value)
 
     }
     else if (email.value != null && password != null){
@@ -38,7 +34,3 @@ function login(){
 
 }
 
-function showMessage(message){
-    alertBox.style.visibility = "visible"
-    alertText.innerText = message
-}

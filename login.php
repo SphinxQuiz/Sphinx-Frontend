@@ -51,5 +51,6 @@
   </body>
   <script src="js/trivial-api.js"></script>
   <script src="./js/login.js"></script>
+  <script src="./js/alert.js"></script>
 
 </html>

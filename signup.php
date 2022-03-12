@@ -20,35 +20,41 @@
   <body class="background-index">
 
     <div class="centered">
+      <div id="alertBox" class="alert">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+          <p id="alertText">This is an alert box.<p>
+      </div>
+
       <a class = "hoverScale-up" href="./index.php"><h1 class="logo-index">Sphinx</h1></a>
       <form action="http://localhost:3000/api/auth/signup" method="post">
         <div class="centered">
             <div class="form-item">
                 <h1 class="form-label">Username</h1>
-                <input class="form-input"type="text" placeholder="Enter Username" name="username" required>  
+                <input id = "usernameInput" class="form-input"type="text" placeholder="Enter Username" name="username" required>  
             </div>
             <div class="form-item">
                 <h1 class="form-label">Email</h1>
-                <input class="form-input"type="text" placeholder="Enter Email" name="email" required>  
+                <input id = "emailInput" class="form-input"type="text" placeholder="Enter Email" name="email" required>  
             </div>
             <div class="form-item">
                 <h1 class="form-label">Password</h1>
-                <input class="form-input"type="text" placeholder="Enter Password" name="password" required>  
+                <input id = "passwordInput" class="form-input"type="text" placeholder="Enter Password" name="password" required>  
             </div>
 
             <div class="form-item">
                 <h1 class="form-label">Confirm Password</h1>
-                <input class="form-input"type="text" placeholder="Enter Password" name="confirm_password" required>  
+                <input id = "confirmPasswordInput" class="form-input"type="text" placeholder="Enter Password" name="confirm_password" required>  
             </div>
-
-            <button class = "form-submit hoverScale-up" type="submit" >Signup</button>
-            <a href="./login.php"><p>Already have an account ?</p></a>
-
         </div>
       </form>
+      <button class = "form-submit hoverScale-up" onclick="signup()" >Signup</button>
+            <a href="./login.php"><p>Already have an account ?</p></a>
     </div>
 
   </body>
   <script src="js/trivial-api.js"></script>
+  <script src="js/alert.js"></script>
+  <script src="js/signup.js"></script>
+
 
 </html>
