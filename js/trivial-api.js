@@ -1,6 +1,5 @@
 const apiUrl = "http://localhost:3000"
 
-const url = apiUrl + "/api/question/getOne";
 
 // Html elements
 const categorie_label = document.getElementById("categorie");
@@ -34,13 +33,21 @@ function hideAnimation() {
 async function displayData() {
 
   
+  const url = apiUrl + "/api/question/getOne";
 
-
-  try {
     showAnimation();
-    fetch(url)
-      .then((reponse) => reponse.json())
-      .then((result) => {
+    let xhr = new XMLHttpRequest()
+    xhr.open("GET", url, false)
+    console.log("test")
+    xhr.setRequestHeader("Authorization", sessionStorage.getItem("token"))
+    xhr.addEventListener("load", () => {
+      if (xhr.status != 200) { // On check si on a pas recu d'erreur
+        alert(`Error ${xhr.status}: ${xhr.statusText}`); 
+        window.location.replace("../index.php")
+      } else { 
+        hideAnimation();
+        let result = JSON.parse(xhr.responseText)
+
         const r = result;
 
         id = r.id
@@ -54,11 +61,11 @@ async function displayData() {
         questionList = r.tabSend;
         buttonFill(r.type);
 
-        hideAnimation();
+        }
       });
-  } catch (error) {
-    console.log(error);
-  }
+      xhr.send()
+
+
 }
 
 function buttonFill(type) {
@@ -126,7 +133,6 @@ async function reveal(whichButton) {
   xmlAnswer.open("GET", urlAnswer, false)
 
    xmlAnswer.addEventListener("load", () => {
-    console.log("done")
     if (xmlAnswer.status != 201) { // On check si on a pas recu d'erreur
       alert(`Error ${xmlAnswer.status}: ${xmlAnswer.statusText}`); 
     } else { 
