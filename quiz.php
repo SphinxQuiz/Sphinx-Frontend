@@ -44,6 +44,7 @@
     
 
   </body>
+  <script src = "js/auth.js"></script>
   <script src="js/trivial-api.js"></script>
 
 </html>
