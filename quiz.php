@@ -20,6 +20,11 @@
     <body onload='displayData()'>
       
     <div id = "main-div" class="centered">
+      
+    <div id="alertBox" class="alert">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+          <p id="alertText">This is an alert box.<p>
+      </div>
 
     <h2 id="question"></h2>
       <h3 id="categorie"></h3>

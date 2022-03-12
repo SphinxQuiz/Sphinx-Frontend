@@ -32,6 +32,10 @@ function hideAnimation() {
 
 // Retrieve and display data on the page
 async function displayData() {
+
+  
+
+
   try {
     showAnimation();
     fetch(url)
