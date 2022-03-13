@@ -12,9 +12,8 @@ const animation = document.getElementById("loading-div");
 const main_div = document.getElementById("main-div");
 const next_button = document.getElementById("next-question");
 
-let a;
 let questionType;
-
+let difficulty = "";
 let id;
 
 // Show the loading animation
@@ -38,7 +37,6 @@ async function displayData() {
     showAnimation();
     let xhr = new XMLHttpRequest()
     xhr.open("GET", url, false)
-    console.log("test")
     xhr.setRequestHeader("Authorization", sessionStorage.getItem("token"))
     xhr.addEventListener("load", () => {
       if (xhr.status != 200) { // On check si on a pas recu d'erreur
@@ -53,7 +51,9 @@ async function displayData() {
         id = r.id
 
         categorie_label.innerText = "Categorie: " + r.category;
-        difficulty_tag_label.innerText = "Difficulty: " + r.difficulty;
+
+        difficulty = r.difficulty
+        difficulty_tag_label.innerText = "Difficulty: " + difficulty;
 
         let questionText = htmlEntities(r.question);
         question_label.innerText = questionText;
@@ -100,19 +100,9 @@ function htmlEntities(str) {
 
 document.querySelectorAll(".quiz-button").forEach((button) => {
   button.addEventListener("click", (b) => {
-    const value = button.value;
-    if (a === value) {
-      button.style.background = "green";
-      displayNextButton();
+    reveal(button)
 
-      console.log("bonne reponse");
-    } else {
-      button.classList.add("apply-shake");
-
-      button.style.background = "red";
-      reveal(button);
-    }
-    disableButtons();
+    
   });
 });
 
@@ -127,11 +117,10 @@ async function reveal(whichButton) {
 
   let urlAnswer = apiUrl + "/api/question/getFromId/" + id
 
-  console.log(id)
 
   let xmlAnswer = new XMLHttpRequest()
 
-  xmlAnswer.open("GET", urlAnswer, false)
+  xmlAnswer.open("POST", urlAnswer, false)
 
    xmlAnswer.addEventListener("load", () => {
     if (xmlAnswer.status != 201) { // On check si on a pas recu d'erreur
@@ -140,33 +129,50 @@ async function reveal(whichButton) {
       let reponse = JSON.parse(xmlAnswer.responseText)
       let a = reponse.correct_answer
 
-      console.log(a)
+      const value = whichButton.value;
 
-      if (questionType === "boolean") {
-        if (whichButton.value == "True") {
-          document.querySelectorAll(".quiz-button")[1].style.background = "green";
-        } else {
-          document.querySelectorAll(".quiz-button")[0].style.background = "green";
-        }
+
+      if (a === value) {
+        whichButton.style.background = "green";
+        displayNextButton();
       } else {
-        document.querySelectorAll("button").forEach((button) => {
-          if (button.value === a) {
-            button.style.background = "green";
-          }
-        });
+        whichButton.classList.add("apply-shake");
+        whichButton.style.background = "red";
+        revealGreen(whichButton, a);
       }
-
     }
-  }
+  })
+  xmlAnswer.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xmlAnswer.send(JSON.stringify({
+      "difficulty": difficulty,
+      "token": sessionStorage.getItem("token"),
+      "answer": whichButton.value
+    })
   )
-
-  xmlAnswer.send()
 
   
   displayNextButton();
 }
 
+function revealGreen(whichButton, a){
+  if (questionType === "boolean") {
+    if (whichButton.value == "True") {
+      document.querySelectorAll(".quiz-button")[1].style.background = "green";
+    } else {
+      document.querySelectorAll(".quiz-button")[0].style.background = "green";
+    }
+  } else {
+    document.querySelectorAll("button").forEach((button) => {
+      if (button.value === a) {
+        button.style.background = "green";
+      }
+    });
+  }
+}
+
 function displayNextButton() {
+  disableButtons();
+
   categorie_label.style.display = "none";
   next_button.style.display = "block";
 }
