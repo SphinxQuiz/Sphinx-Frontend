@@ -3,7 +3,7 @@ body {
 }
 
 #profile-title {
-  margin: 50px;
+  margin: 50px 0px 20px 0px;
   font-size: 60px;
 }
 
@@ -12,9 +12,32 @@ body {
   font-size: 40px;
 }
 
+.logout-button{
+    padding: 10px 0px;
+    border-radius: 10px;
+    background-color: rgba(138, 43, 226, 0.9) ;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 20px;
+    width: 150px;
+    outline: inherit;
+    border: none;
+    text-decoration: none;
+}
+
+.logout-button:hover{
+  cursor: pointer;
+}
+
+#elo-ligne{
+  margin-top: 30px;
+}
+
 @media only screen and (max-width: 800px) {
   .label {
     margin: 20px 0px;
     font-size: 30px;
+  }
+  .ligne{
+    flex-direction: column;
   }
 }

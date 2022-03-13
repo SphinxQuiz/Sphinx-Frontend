@@ -30,12 +30,15 @@
     <div class="centered">
         <div class="container">
             <h1 class="notranslate" id="profile-title">Bedrock</h1>
-            <button onclick="logout()">Logout</button>
-            <div class="ligne">
+            <button class="logout-button" onclick="logout()">Logout</button>
+            <div class="ligne" id ="elo-ligne">
                 <h2 class="label">Elo : 210</h2>
+                <!--
                 <h2 class="label">Ratio : 0.8</h2>
+                <h2 class="label">Max streak : </h2>
+                 -->
+
             </div>
-            <h2 class="label">Max streak : </h2>
             <div id="google_translate_element"></div>
             
         </div>
