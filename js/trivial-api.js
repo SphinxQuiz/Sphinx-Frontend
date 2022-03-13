@@ -44,9 +44,7 @@ async function displayData() {
         window.location.replace("../index.php")
       } else { 
         hideAnimation();
-        let result = JSON.parse(xhr.responseText)
-
-        const r = result;
+        const r = JSON.parse(xhr.responseText)
 
         id = r.id
 
@@ -121,6 +119,7 @@ async function reveal(whichButton) {
   let xmlAnswer = new XMLHttpRequest()
 
   xmlAnswer.open("POST", urlAnswer, false)
+  xmlAnswer.setRequestHeader("Authorization", sessionStorage.getItem("token"))
 
    xmlAnswer.addEventListener("load", () => {
     if (xmlAnswer.status != 201) { // On check si on a pas recu d'erreur
