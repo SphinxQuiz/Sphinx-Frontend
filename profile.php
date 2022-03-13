@@ -9,8 +9,19 @@
 
 
     <!-- Custom google dropdown -->
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript">
 
+    var duplicate_google_translate_counter = 0;//this stops google adding button multiple times
+
+    function googleTranslateElementInit() {
+    if (duplicate_google_translate_counter == 0) {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+    duplicate_google_translate_counter++;
+    }
+
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
    
     <title>Profile</title>
 </head>
@@ -19,6 +30,7 @@
     <div class="centered">
         <div class="container">
             <h1 class="notranslate" id="profile-title">Bedrock</h1>
+            <button onclick="logout()">Logout</button>
             <div class="ligne">
                 <h2 class="label">Elo : 210</h2>
                 <h2 class="label">Ratio : 0.8</h2>
@@ -29,11 +41,8 @@
         </div>
     </div>
 </body>
-<script type="text/javascript">
-        function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-        }
-    </script> 
+
 <script src = "js/auth.js"></script>
+<script src = "js/profile.js"></script>
 
 </html>

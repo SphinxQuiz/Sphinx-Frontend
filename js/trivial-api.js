@@ -94,6 +94,7 @@ function htmlEntities(str) {
     .replace(/&quot;/g, '"')
     .replace(/&#039;/g, "'")
     .replace(/&ouml;/g, "ö")
+    .replace(/&diviser;/g, "/")
     .replace(/&rsquo;/g, "’");
 }
 
