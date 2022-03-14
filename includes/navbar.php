@@ -14,7 +14,7 @@
         <h1 class="logo notranslate">Sphinx</h1>
         <ul class="desktop-list">
           <li>
-            <a href="#"><i class="fa-solid fa-medal icons-white"></i></a>
+            <a href="./leaderboard.php"><i class="fa-solid fa-medal icons-white"></i></a>
           </li>
           <li>
             <a href="quiz.php"><i class="fa-solid fa-brain icons-white"></i></a>
