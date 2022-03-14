@@ -12,6 +12,10 @@ const animation = document.getElementById("loading-div");
 const main_div = document.getElementById("main-div");
 const next_button = document.getElementById("next-question");
 
+const goodAudio = new Audio("./assets/good.wav")
+const badAudio = new Audio("./assets/bad.wav")
+
+
 let questionType;
 let difficulty = "";
 let id;
@@ -133,8 +137,10 @@ async function reveal(whichButton) {
 
       if (a === value) {
         whichButton.style.background = "green";
+        goodAudio.play()
         displayNextButton();
       } else {
+        badAudio.play()
         whichButton.classList.add("apply-shake");
         whichButton.style.background = "red";
         revealGreen(whichButton, a);

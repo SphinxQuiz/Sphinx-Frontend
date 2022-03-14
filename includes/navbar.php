@@ -25,7 +25,7 @@
         </ul>
         <ul class="mobile-list">
           <li>
-            <a href="#"><i class="fa-solid fa-medal icons-white"></i></a>
+            <a href="./leaderboard.php"><i class="fa-solid fa-medal icons-white"></i></a>
           </li>
           <li>
             <a href="quiz.php"><i class="fa-solid fa-brain icons-white"></i></a>

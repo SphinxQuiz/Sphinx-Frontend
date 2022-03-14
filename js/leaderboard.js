@@ -38,7 +38,9 @@ function loadData(){
         for(let i = 0; i < result.length; i ++){
           let user = document.createElement("h2")
           user.classList.add("userLine")
-          user.innerText = i + 1 + ". " + result[i].username + " : " + result[i].score
+          user.classList.add("notranslate")
+
+          user.innerText = i + 1 + ". " + result[i].username + " - " + result[i].score
           leaderboardDiv.appendChild(user)
         }
 
