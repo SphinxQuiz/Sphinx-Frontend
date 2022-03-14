@@ -2,7 +2,7 @@ const apiUrl = "http://localhost:3000"
 
 
 const leadeboard = document.getElementById("leaderboardBody")
-console.log(leaderboardBody)
+const table = document.getElementById("tableId")
 const main_div = document.getElementById("main-div");
 const animation = document.getElementById("loading-div");
 
@@ -33,59 +33,53 @@ function loadData(){
       }
       else{
 
-        // The table head
-
-
-        let table = document.createElement("table")
-        leadeboard.appendChild(table)
-        
-        let tableHead = document.createElement("thead")
-        table.appendChild(trHead)
-        let trHead = document.createElement("tr")
-
-        let thRank = document.createElement("th")
-        thRank.innerText = "Rank" 
-        trHead.appendChild(thRank)
-
-        let thUsername = document.createElement("th")
-        thUsername.innerText = "Username"
-        trHead.appendChild(thUsername)
-
-        let thRatio = document.createElement("th")
-        thRatio.innerText = "Ratio"
-        trHead.appendChild(thRantio)
-
-        let thMax = document.createElement("th")
-        thMax.innerText = "Max streak"
-        trHead.appendChild(thMax)
-
-
-
-
         let result = JSON.parse(xhr.responseText)
+        
+
+        let tableBody = document.getElementById('tableBody')
+        table.appendChild(tableBody)
 
 
         for(let i = 0; i < result.length; i ++){     
           
-          let tr = document.createElement("tr")
+
+          let trBody = document.createElement("tr")
+          trBody.classList.add("row")
+          tableBody.appendChild(trBody)
           
           let rank = document.createElement("td")
-          rank.innerText = i
+          rank.classList.add("cell")
+          rank.innerText = i + 1
 
           let username = document.createElement("td")
+          username.classList.add("cell")
           username.innerText = result[i].username
 
           let ratio = document.createElement("td")
-          let ratioCalcul = result[i].goodAnswer / result[i].badAnswer
-          ratio.innerText = ratioCalcul
+          ratio.classList.add("cell")
+          let ratioCalcul;
 
-          tr.appendChild(rank)
-          tr.appendChild(username)
-          tr.appendChild(ratio)
+          let maxStreak = document.createElement("td")
+          maxStreak.classList.add("cell")
+          maxStreak.innerText = result[i].maxStreak
 
-          leaderboardBody.appendChild(tr)
+          if(result[i].goodAnswer == 0 || result[i].badAnswer == 0 ){
+            ratioCalcul = 1
+          }
+          else{
+            ratioCalcul = result[i].goodAnswer / result[i].badAnswer
+          }
 
+          ratio.innerText = ratioCalcul.toFixed(2)
+
+          trBody.appendChild(rank)
+          trBody.appendChild(username)
+          trBody.appendChild(ratio)
+          trBody.appendChild(maxStreak)
+
+          tableBody.appendChild(trBody)
         }
+        
 
 
       }

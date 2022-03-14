@@ -30,20 +30,21 @@
     <div id="main-div" class="centered">
         <div class="container">
             <h1 class="notranslate" id="leaderboardTitle">Leaderboard</h1>
-            <div id="leaderboard">
+            <div id="leaderboard"> 
+                <table id="tableId">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Username</th>
+                            <th>Ratio</th>
+                            <th>Max streak</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
 
-            </div>
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Username</th>
-                    <th>Ratio</th>
-                    <th>Max streal</th>
-                </tr>
-            </thead>
-            <tbody id="leaderboardBody">
-            </tbody>
-            
+                    </tbody>
+                </table>
+            </div>            
             
         <div id ="loading-div" class="gif-div">
             <img id = "loading-gif" src="assets/loading-gif.gif" alt="loading gif">

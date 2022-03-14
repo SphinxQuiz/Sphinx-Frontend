@@ -32,12 +32,13 @@
             <h1 class="notranslate" id="profileTitle">Bedrock</h1>
             <button class="logout-button" onclick="logout()">Logout</button>
             <div class="ligne" id ="elo-ligne">
-                <h2 id="elo" class="label">Elo : 210</h2>
-                <h2 id="ratio" class="label">Ratio : 0.8</h2>
+                <h2 id="elo" class="label notranslate">Score : 210</h2>
+                <h2 id="ratio" class="label notranslate">Ratio : 0.8</h2>
 
-                <!--
-                <h2 class="label">Max streak : </h2>
-                 -->
+                
+                <h2 id="maxStreak" class="label">Max streak : </h2>
+                <h2 id="currentStreak" class="label">Current streak : </h2>
+
 
             </div>
             <div id="google_translate_element"></div>

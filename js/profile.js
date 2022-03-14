@@ -4,6 +4,9 @@ const apiUrl = "http://localhost:3000"
 const profileTitle = document.getElementById("profileTitle")
 const elo = document.getElementById("elo")
 const ratio = document.getElementById("ratio")
+const maxStreak = document.getElementById("maxStreak")
+const currentStreak = document.getElementById("currentStreak")
+
 const main_div = document.getElementById("main-div");
 const animation = document.getElementById("loading-div");
 
@@ -34,13 +37,24 @@ function loadData(){
       }
       else{
         let result = JSON.parse(xhr.responseText)
+        result = result[0]
+        console.log(result)
+        let ratioCalcul;
+
+        if(result.goodAnswer == 0 || result.badAnswer == 0){
+          ratioCalcul = 1
+        }
 
         profileTitle.innerText = result.username
         elo.innerText = "Score : " + result.score
         
-        let ratioCalcul = result.goodAnswer / result.badAnswer
+        ratioCalcul = result.goodAnswer / result.badAnswer
 
-        ratio.innerText = "Ratio :" + ratioCalcul.toFixed(2)
+        ratio.innerText = "Ratio : " + ratioCalcul.toFixed(2)
+
+        maxStreak.innerText = "Max streak : " + result.maxStreak
+
+        currentStreak.innerText = "Current streak : " + result.currentStreak
 
       }
     })
