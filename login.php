@@ -39,11 +39,12 @@
             </div>
             <div class="form-item">
                 <h1 class="form-label">Password</h1>
-                <input id= "passwordInput" class="form-input"type="text" placeholder="Enter Password" name="password" required>  
-            </div>
+                <input id= "passwordInput" class="form-input passInput" type="password" placeholder="Enter Password" name="password" required>  
+                <button type="button" onclick ="passwordReveal(false)" ><i class="fa-solid fa-eye"></i></button>
+              </div>
         </div>
       </form>
-      <button class = "form-submit hoverScale-up" onclick="login()">Login</button>
+      <button type="none" class = "form-submit hoverScale-up" onclick="login()">Login</button>
       <a href="./signup.php"><p>Create an account</p></a>
 
     </div>

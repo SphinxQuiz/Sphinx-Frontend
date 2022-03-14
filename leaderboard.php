@@ -34,9 +34,10 @@
                 <table id="tableId">
                     <thead>
                         <tr>
-                            <th>Rank</th>
+                            <th >Rank</th>
+                            <th class="notranslate">Score</th>
                             <th>Username</th>
-                            <th>Ratio</th>
+                            <th class="notranslate">Ratio</th>
                             <th>Max streak</th>
                         </tr>
                     </thead>

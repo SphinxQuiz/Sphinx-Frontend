@@ -8,8 +8,13 @@ body {
 }
 
 .label {
-  margin: 20px 100px;
+  margin: 20px;
   font-size: 40px;
+}
+
+.ligne{
+  justify-content: space-around;
+  margin: 40px;
 }
 
 .logout-button{
@@ -28,16 +33,20 @@ body {
   cursor: pointer;
 }
 
-#elo-ligne{
-  margin-top: 30px;
-}
 
 @media only screen and (max-width: 800px) {
+  .logout-button {
+    margin-bottom: 30px;
+  }
   .label {
     margin: 20px 0px;
     font-size: 30px;
   }
   .ligne{
+    margin: 0px;
     flex-direction: column;
+  }
+  #elo-ligne{
+    margin-bottom: 30px;
   }
 }

@@ -38,13 +38,17 @@
             </div>
             <div class="form-item">
                 <h1 class="form-label">Password</h1>
-                <input id = "passwordInput" class="form-input"type="text" placeholder="Enter Password" name="password" required>  
+                <input id = "passwordInput" class="form-input passInput" type="password"  placeholder="Enter Password" name="password" required>
+                <button class="hideButton" type="button" onclick ="passwordReveal(false)" ><i class="fa-solid fa-eye"></i></button>
+ 
             </div>
 
             <div class="form-item">
                 <h1 class="form-label">Confirm Password</h1>
-                <input id = "confirmPasswordInput" class="form-input"type="text" placeholder="Enter Password" name="confirm_password" required>  
-            </div>
+                <input id = "confirmPasswordInput" class="form-input passInput" type="password" placeholder="Enter Password" name="confirm_password" required>  
+                <button class="hideButton" type="button" onclick ="passwordReveal(true)" ><i class="fa-solid fa-eye"></i></button>
+
+              </div>
         </div>
       </form>
       <button class = "form-submit hoverScale-up" onclick="signup()" >Signup</button>

@@ -58,11 +58,19 @@ tr.row>td {
 }
 
 @media only screen and (max-width: 800px) {
+    th{
+        padding: 0px;
+
+    }
+    table{
+        width: 80%;
+    }
     tr.row>td {
-        padding: 1.5em;
+        padding: 1em;
     }
     
     .cell{
+        padding: 0em;
         font-size: 1em;
     }
 }

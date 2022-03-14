@@ -34,7 +34,6 @@ function loadData(){
       else{
 
         let result = JSON.parse(xhr.responseText)
-        
 
         let tableBody = document.getElementById('tableBody')
         table.appendChild(tableBody)
@@ -50,6 +49,11 @@ function loadData(){
           let rank = document.createElement("td")
           rank.classList.add("cell")
           rank.innerText = i + 1
+
+          let score = document.createElement("td")
+          score.classList.add("cell")
+          score.innerText = result[i].score
+
 
           let username = document.createElement("td")
           username.classList.add("cell")
@@ -73,6 +77,7 @@ function loadData(){
           ratio.innerText = ratioCalcul.toFixed(2)
 
           trBody.appendChild(rank)
+          trBody.appendChild(score)
           trBody.appendChild(username)
           trBody.appendChild(ratio)
           trBody.appendChild(maxStreak)

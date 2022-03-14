@@ -52,7 +52,11 @@ async function displayData() {
 
         id = r.id
 
-        categorie_label.innerText = "Categorie: " + r.category;
+        categorie_label.innerText = "Categorie - " + r.category;
+
+        if(r.category == "Entertainment: Video Games" || r.category == "Entertainment: Musicals & Theatres" || r.category == "Entertainment: Music" || r.category == "Entertainment: Television" ){
+          buttonNoTranslate()
+        }
 
         difficulty = r.difficulty
         difficulty_tag_label.innerText = "Difficulty: " + difficulty;
@@ -68,6 +72,12 @@ async function displayData() {
       xhr.send()
 
 
+}
+
+function buttonNoTranslate(){
+  for (let b of buttons) {
+    b.classList.add("notranslate")
+  }
 }
 
 function buttonFill(type) {

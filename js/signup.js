@@ -5,10 +5,36 @@ const email = document.getElementById("emailInput")
 const password = document.getElementById("passwordInput")
 const passwordConfirm = document.getElementById("confirmPasswordInput")
 
+let password1Show = false
+let password2Show = false
+
 
 
 const urlSignup = apiUrl + "/api/auth/signup";
 
+function passwordReveal(secondOne){
+    if(secondOne){
+        if(password2Show == false){
+            passwordConfirm.type ="text"
+        }
+        else if (password2Show == true){
+            passwordConfirm.type = "password"
+        }
+        password2Show = !password2Show
+
+    }
+    else {
+        if(password1Show == false){
+            password.type ="text"
+        }
+        else if (password1Show == true){
+            password.type = "password"
+        }
+        password1Show = !password1Show
+
+    }
+
+}
 
 function signup(){
     if(!username.value || !email.value || !password.value || !passwordConfirm.value){

@@ -7,6 +7,19 @@ const password = document.getElementById("passwordInput")
 
 const urlLogin = apiUrl + "/api/auth/login";
 
+let passwordShow = false
+
+function passwordReveal(){
+    if(passwordShow == false){
+        password.type ="text"
+    }
+    else if (passwordShow == true){
+        password.type = "password"
+    }
+    passwordShow = !passwordShow
+
+}
+
 
 function login(){
     if(!email.value|| !password.value){
