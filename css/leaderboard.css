@@ -1,8 +1,19 @@
 #leaderboardTitle{
     margin-top: 30px;
-    font-size: 30px;
+    font-size: 45px;
 }
 
 .userLine{
-    margin-top: 30px;
+    margin: 30px;
+}
+
+#leaderBoard{
+    border: 2px black solid;
+}
+
+
+
+.horizontalLine{
+    display: flex;
+    border-top: 2px solid black;
 }

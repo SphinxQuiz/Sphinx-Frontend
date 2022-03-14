@@ -1,7 +1,8 @@
 const apiUrl = "http://localhost:3000"
 
 
-const leaderboardDiv = document.getElementById("leaderboardDiv")
+const leadeboard = document.getElementById("leaderboardBody")
+console.log(leaderboardBody)
 const main_div = document.getElementById("main-div");
 const animation = document.getElementById("loading-div");
 
@@ -31,17 +32,59 @@ function loadData(){
         window.location.replace("../index.php")
       }
       else{
+
+        // The table head
+
+
+        let table = document.createElement("table")
+        leadeboard.appendChild(table)
+        
+        let tableHead = document.createElement("thead")
+        table.appendChild(trHead)
+        let trHead = document.createElement("tr")
+
+        let thRank = document.createElement("th")
+        thRank.innerText = "Rank" 
+        trHead.appendChild(thRank)
+
+        let thUsername = document.createElement("th")
+        thUsername.innerText = "Username"
+        trHead.appendChild(thUsername)
+
+        let thRatio = document.createElement("th")
+        thRatio.innerText = "Ratio"
+        trHead.appendChild(thRantio)
+
+        let thMax = document.createElement("th")
+        thMax.innerText = "Max streak"
+        trHead.appendChild(thMax)
+
+
+
+
         let result = JSON.parse(xhr.responseText)
 
-        console.log(result)
 
-        for(let i = 0; i < result.length; i ++){
-          let user = document.createElement("h2")
-          user.classList.add("userLine")
-          user.classList.add("notranslate")
+        for(let i = 0; i < result.length; i ++){     
+          
+          let tr = document.createElement("tr")
+          
+          let rank = document.createElement("td")
+          rank.innerText = i
 
-          user.innerText = i + 1 + ". " + result[i].username + " - " + result[i].score
-          leaderboardDiv.appendChild(user)
+          let username = document.createElement("td")
+          username.innerText = result[i].username
+
+          let ratio = document.createElement("td")
+          let ratioCalcul = result[i].goodAnswer / result[i].badAnswer
+          ratio.innerText = ratioCalcul
+
+          tr.appendChild(rank)
+          tr.appendChild(username)
+          tr.appendChild(ratio)
+
+          leaderboardBody.appendChild(tr)
+
         }
 
 
