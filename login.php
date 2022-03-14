@@ -40,7 +40,7 @@
             <div class="form-item">
                 <h1 class="form-label">Password</h1>
                 <input id= "passwordInput" class="form-input passInput" type="password" placeholder="Enter Password" name="password" required>  
-                <button type="button" onclick ="passwordReveal(false)" ><i class="fa-solid fa-eye"></i></button>
+                <button class="hideButton" type="button" onclick ="passwordReveal()" ><i class="fa-solid fa-eye"></i></button>
               </div>
         </div>
       </form>

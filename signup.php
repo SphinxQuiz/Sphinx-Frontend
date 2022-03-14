@@ -47,7 +47,6 @@
                 <h1 class="form-label">Confirm Password</h1>
                 <input id = "confirmPasswordInput" class="form-input passInput" type="password" placeholder="Enter Password" name="confirm_password" required>  
                 <button class="hideButton" type="button" onclick ="passwordReveal(true)" ><i class="fa-solid fa-eye"></i></button>
-
               </div>
         </div>
       </form>
