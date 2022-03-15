@@ -52,11 +52,15 @@ function loadData(){
 
           let score = document.createElement("td")
           score.classList.add("cell")
+          score.classList.add("notranslate")
+
           score.innerText = result[i].score
 
 
           let username = document.createElement("td")
           username.classList.add("cell")
+          username.classList.add("notranslate")
+
           username.innerText = result[i].username
 
           let ratio = document.createElement("td")
@@ -67,7 +71,7 @@ function loadData(){
           maxStreak.classList.add("cell")
           maxStreak.innerText = result[i].maxStreak
 
-          if(result[i].goodAnswer == 0 || result[i].badAnswer == 0 ){
+          if(result[i].goodAnswer == 0 && result[i].badAnswer == 0 ){
             ratioCalcul = 1
           }
           else{

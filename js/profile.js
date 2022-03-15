@@ -41,7 +41,7 @@ function loadData(){
         console.log(result)
         let ratioCalcul;
 
-        if(result.goodAnswer == 0 || result.badAnswer == 0){
+        if(result.goodAnswer == 0 && result.badAnswer == 0){
           ratioCalcul = 1
         }
 

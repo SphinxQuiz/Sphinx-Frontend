@@ -86,18 +86,72 @@ body {
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 750px) {
   #question {
     margin-top: 3vh;
-    font-size: 40px;
+    font-size: 30px;
   }
+
+  #difficulty-tag {
+    font-size: 18px;
+  }
+  
+  #categorie {
+    margin: 4vh 0;
+    font-size: 20px;
+  }
+
   .quiz-button {
-    padding: 20px 40px;
+    padding: 20px 10px;
     margin: 20px;
     border-radius: 10px;
     background-color: blueviolet;
     color: whitesmoke;
     font-size: 20px;
-    width: 200px;
+    width: 150px;
   }
+}
+
+@media only screen and (max-width: 320px) {
+
+  #question {
+    margin-top: 3vh;
+    font-size:20px;
+  }
+
+  #difficulty-tag {
+    font-size: 12px;
+  }
+  
+  #categorie {
+    margin: 4vh 0;
+    font-size: 15px;
+  }
+
+  .quiz-button {
+    padding: 15px 10px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: blueviolet;
+    color: whitesmoke;
+    font-size: 15px;
+    width: 120px;
+  }
+
+  #next-question {
+    display: none;
+    margin-bottom: 0px;
+    margin-top: 20px;
+  
+    padding: 10px 10px;
+    border-radius: 5px;
+  
+    background-color: grey;
+    color: whitesmoke;
+    font-size: 15px;
+    width: 150px;
+    outline: inherit;
+    border: none;
+  }
+
 }
