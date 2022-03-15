@@ -29,7 +29,7 @@
       </div>
 
       <a class = "hoverScale-up" href="./index.php"><h1 class="logo-index">Sphinx</h1></a>
-      <form action="http://localhost:3000/api/auth/login" method="post">
+      <form action="" method="post">
         <div class="centered">
 
 

@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:3000"
+const apiUrl = "https://sphinx-backend.herokuapp.com"
 
 
 // Html elements
@@ -54,7 +54,7 @@ async function displayData() {
 
         categorie_label.innerText = "Categorie - " + r.category;
 
-        if(r.category == "Entertainment: Video Games" || r.category == "Entertainment: Musicals & Theatres" || r.category == "Entertainment: Music" || r.category == "Entertainment: Television" ){
+        if(r.category == "Entertainment: Video Games" || r.category == "Entertainment: Musicals & Theatres" || r.category == "Entertainment: Music" || r.category == "Entertainment: Television"  || r.category == "Entertainment: Cartoon & Animations"){
           buttonNoTranslate()
         }
 

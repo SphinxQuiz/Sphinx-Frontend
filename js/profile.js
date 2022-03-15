@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:3000"
+const apiUrl = "https://sphinx-backend.herokuapp.com"
 
 
 const profileTitle = document.getElementById("profileTitle")
