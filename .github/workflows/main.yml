@@ -36,5 +36,7 @@ jobs:
         #docker rm portfolio
 
         run: |
+          docker stop sphinx   
+          docker rm sphinx
           docker container run --name sphinx -p 2308:80 -p 443:443 -d sphinx
           docker start sphix
