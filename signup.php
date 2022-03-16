@@ -50,7 +50,7 @@
               </div>
         </div>
       </form>
-      <button class = "form-submit hoverScale-up" onclick="signup()" >Signup</button>
+      <button id = "submitButton" class = "form-submit hoverScale-up" onclick="signup()" >Signup</button>
             <a href="./login.php"><p>Already have an account ?</p></a>
     </div>
 

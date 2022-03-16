@@ -20,6 +20,21 @@ let questionType;
 let difficulty = "";
 let id;
 
+
+
+let nb = 1;
+
+
+function printDots(element) {
+    console.log(element)
+    element.innerText = ""
+    for(let i = 0; i<nb; i ++){
+        element.innerText += "."
+    }
+    nb = nb == 3 ? 1 : nb+1
+
+}
+
 // Show the loading animation
 function showAnimation() {
   main_div.style.display = "none";
@@ -40,7 +55,9 @@ async function displayData() {
 
     showAnimation();
     let xhr = new XMLHttpRequest()
+
     xhr.open("GET", url, false)
+
     xhr.setRequestHeader("Authorization", sessionStorage.getItem("token"))
     xhr.addEventListener("load", () => {
       if (xhr.status != 200) { // On check si on a pas recu d'erreur
@@ -130,12 +147,20 @@ async function reveal(whichButton) {
   let urlAnswer = apiUrl + "/api/question/getFromId/" + id
 
 
+  let oldText = whichButton.innerText
+
+  printDots(whichButton)
+  let timeout = setInterval(() => printDots(whichButton), 800) 
+
   let xmlAnswer = new XMLHttpRequest()
 
-  xmlAnswer.open("POST", urlAnswer, false)
+  xmlAnswer.open("POST", urlAnswer, true)
   xmlAnswer.setRequestHeader("Authorization", sessionStorage.getItem("token"))
 
    xmlAnswer.addEventListener("load", () => {
+     clearInterval(timeout)
+     whichButton.innerText = oldText
+
     if (xmlAnswer.status != 201) { // On check si on a pas recu d'erreur
       alert(`Error ${xmlAnswer.status}: ${xmlAnswer.statusText}`); 
     } else { 

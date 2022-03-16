@@ -44,7 +44,7 @@
               </div>
         </div>
       </form>
-      <button type="none" class = "form-submit hoverScale-up" onclick="login()">Login</button>
+      <button id = "submitButton" type="none" class = "form-submit hoverScale-up" onclick="login()">Login</button>
       <a href="./signup.php"><p>Create an account</p></a>
 
     </div>

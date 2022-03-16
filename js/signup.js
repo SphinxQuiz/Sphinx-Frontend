@@ -4,9 +4,24 @@ const username = document.getElementById("usernameInput")
 const email = document.getElementById("emailInput")
 const password = document.getElementById("passwordInput")
 const passwordConfirm = document.getElementById("confirmPasswordInput")
+const submitButton = document.getElementById("submitButton")
 
 let password1Show = false
 let password2Show = false
+
+
+let nb = 1;
+
+
+function printDots(element) {
+    console.log(element)
+    element.innerText = ""
+    for(let i = 0; i<nb; i ++){
+        element.innerText += "."
+    }
+    nb = nb == 3 ? 1 : nb+1
+
+}
 
 
 
@@ -44,8 +59,17 @@ function signup(){
         showMessage("Les mots de passes sont differents")
     }
     else{
-        xhr.open("POST", urlSignup, false)
+        let oldText = submitButton.innerText
+
+        printDots(submitButton)
+        let timeout = setInterval(() => printDots(submitButton), 800) 
+        xhr.open("POST", urlSignup, true)
+
+
         xhr.addEventListener("load", () => {
+            clearInterval(timeout)
+            submitButton.innerText = oldText
+
             if(xhr.status != 201){
                 let message = JSON.parse(xhr.responseText)
                 showMessage(message.error);
@@ -65,4 +89,6 @@ function signup(){
     }
 
 }
+
+
 
