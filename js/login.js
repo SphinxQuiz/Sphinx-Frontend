@@ -3,12 +3,16 @@ xhr = new XMLHttpRequest()
 const email = document.getElementById("emailInput")
 const password = document.getElementById("passwordInput")
 
+const apiUrl = "https://sphinx-backend.herokuapp.com"
+const urlLogin = apiUrl + "/api/auth/login";
+let passwordShow = false
+
+
 
 let nb = 1;
 
 
 function printDots(element) {
-    console.log(element)
     element.innerText = ""
     for(let i = 0; i<nb; i ++){
         element.innerText += "."
@@ -18,9 +22,7 @@ function printDots(element) {
 }
 
 
-const urlLogin = apiUrl + "/api/auth/login";
 
-let passwordShow = false
 
 function passwordReveal(){
     if(passwordShow == false){

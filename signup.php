@@ -55,7 +55,6 @@
     </div>
 
   </body>
-  <script src="js/trivial-api.js"></script>
   <script src="js/alert.js"></script>
   <script src="js/signup.js"></script>
 

@@ -9,12 +9,16 @@ const submitButton = document.getElementById("submitButton")
 let password1Show = false
 let password2Show = false
 
+const apiUrl = "https://sphinx-backend.herokuapp.com"
+const urlSignup = apiUrl + "/api/auth/signup";
+
 
 let nb = 1;
 
 
+
+
 function printDots(element) {
-    console.log(element)
     element.innerText = ""
     for(let i = 0; i<nb; i ++){
         element.innerText += "."
@@ -25,7 +29,6 @@ function printDots(element) {
 
 
 
-const urlSignup = apiUrl + "/api/auth/signup";
 
 function passwordReveal(secondOne){
     if(secondOne){
@@ -89,6 +92,8 @@ function signup(){
     }
 
 }
+
+
 
 
 
