@@ -45,7 +45,7 @@ function loadData(){
           ratioCalcul = 1
         }
         else{
-          ratioCalcul = result[i].goodAnswer / result[i].badAnswer
+          ratioCalcul = result.goodAnswer / result.badAnswer
         }
 
         profileTitle.innerText = result.username
