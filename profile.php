@@ -29,15 +29,15 @@
     <?php include "includes/navbar.php"?>
     <div id="main-div" class="centered">
         <div class="container">
-            <h1 class="notranslate" id="profileTitle">Bedrock</h1>
+            <h1 class="notranslate" id="profileTitle">???</h1>
             <button class="logout-button" onclick="logout()">Logout</button>
             <div class="ligne" id ="elo-ligne">
-                <h2 id="elo" class="label notranslate">Score : 210</h2>
-                <h2 id="ratio" class="label notranslate">Ratio : 0.8</h2>
+                <h2 id="elo" class="label notranslate">???</h2>
+                <h2 id="ratio" class="label notranslate">???</h2>
             </div>
             <div class="ligne" id ="elo-ligne">
-                <h2 id="maxStreak" class="label">Max streak : </h2>
-                <h2 id="currentStreak" class="label">Current streak : </h2>
+                <h2 id="maxStreak" class="label">???</h2>
+                <h2 id="currentStreak" class="label">???</h2>
             </div>
 
                 
@@ -56,5 +56,7 @@
 
 <script src = "js/auth.js"></script>
 <script src = "js/profile.js"></script>
+<script src="js/gofullscreen.js"></script>
+
 
 </html>

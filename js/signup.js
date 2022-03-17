@@ -10,6 +10,8 @@ let password1Show = false
 let password2Show = false
 
 const apiUrl = "https://sphinx-backend.herokuapp.com"
+//const apiUrl = "http://localhost:3000"
+
 const urlSignup = apiUrl + "/api/auth/signup";
 
 
@@ -81,7 +83,6 @@ function signup(){
                 let message = JSON.parse(xhr.responseText)
                 sessionStorage.setItem("token", message.token)
                 showMessage(message.message, true)
-                console.log("done")
                 //window.location.replace("./quiz.php")
             }
         })

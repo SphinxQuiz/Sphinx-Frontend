@@ -1,4 +1,5 @@
 const apiUrl = "https://sphinx-backend.herokuapp.com"
+//const apiUrl = "http://localhost:3000"
 
 
 const profileTitle = document.getElementById("profileTitle")
@@ -38,11 +39,13 @@ function loadData(){
       else{
         let result = JSON.parse(xhr.responseText)
         result = result[0]
-        console.log(result)
         let ratioCalcul;
 
-        if(result.goodAnswer == 0 && result.badAnswer == 0){
+        if(result.goodAnswer == 0 || result.badAnswer == 0 ){
           ratioCalcul = 1
+        }
+        else{
+          ratioCalcul = result[i].goodAnswer / result[i].badAnswer
         }
 
         profileTitle.innerText = result.username

@@ -55,5 +55,7 @@
 
 <script src = "js/auth.js"></script>
 <script src = "js/leaderboard.js"></script>
+<script src="js/gofullscreen.js"></script>
+
 
 </html>

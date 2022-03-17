@@ -60,5 +60,7 @@
   </body>
   <script src = "js/auth.js"></script>
   <script src="js/trivial-api.js"></script>
+  <script src="js/gofullscreen.js"></script>
+
 
 </html>

@@ -30,5 +30,6 @@
 
   </body>
   <script src="js/trivial-api.js"></script>
+  <script src="js/gofullscreen.js"></script>
 
 </html>

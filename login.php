@@ -52,5 +52,7 @@
   </body>
   <script src="js/login.js"></script>
   <script src="./js/alert.js"></script>
+  <script src="js/gofullscreen.js"></script>
+
 
 </html>

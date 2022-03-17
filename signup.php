@@ -57,6 +57,8 @@
   </body>
   <script src="js/alert.js"></script>
   <script src="js/signup.js"></script>
+  <script src="js/gofullscreen.js"></script>
+
 
 
 </html>

@@ -1,4 +1,5 @@
 const apiUrl = "https://sphinx-backend.herokuapp.com"
+//const apiUrl = "http://localhost:3000"
 
 
 const leadeboard = document.getElementById("leaderboardBody")
@@ -18,8 +19,7 @@ function loadData(){
 
     let urlProfile = apiUrl + "/api/auth/getLeaderboard"
 
-    xhr.open("GET", urlProfile, false)
-
+    xhr.open("POST", urlProfile, false)
     xhr.setRequestHeader("Authorization", sessionStorage.getItem("token"))
 
     showAnimation();
@@ -71,7 +71,7 @@ function loadData(){
           maxStreak.classList.add("cell")
           maxStreak.innerText = result[i].maxStreak
 
-          if(result[i].goodAnswer == 0 && result[i].badAnswer == 0 ){
+          if(result[i].goodAnswer == 0 || result[i].badAnswer == 0 ){
             ratioCalcul = 1
           }
           else{

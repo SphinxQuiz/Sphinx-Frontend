@@ -4,6 +4,8 @@ const email = document.getElementById("emailInput")
 const password = document.getElementById("passwordInput")
 
 const apiUrl = "https://sphinx-backend.herokuapp.com"
+//const apiUrl = "http://localhost:3000"
+
 const urlLogin = apiUrl + "/api/auth/login";
 let passwordShow = false
 
