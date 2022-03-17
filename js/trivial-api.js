@@ -173,8 +173,8 @@ async function reveal(whichButton) {
 
 
       if (a === value) {
-        whichButton.style.background = "green";
         goodAudio.play()
+        whichButton.style.background = "green";
         displayNextButton();
       } else {
         badAudio.play()
