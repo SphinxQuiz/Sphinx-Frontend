@@ -119,6 +119,8 @@ function buttonFill(type) {
 
 function htmlEntities(str) {
   return String(str)
+    .replace(/&rdquo/g, "”")
+    .replace(/&eacute;/g, "é")
     .replace(/&amp;/g, "&")
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
