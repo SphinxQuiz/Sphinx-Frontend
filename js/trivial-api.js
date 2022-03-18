@@ -105,7 +105,7 @@ function buttonFill(type) {
     let i = 0;
     for (let b of buttons) {
       b.innerText = htmlEntities(questionList[i]);
-      b.value = htmlEntities(questionList[i]);
+      b.value = questionList[i];
       i++;
     }
   } else {

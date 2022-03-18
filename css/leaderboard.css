@@ -12,7 +12,6 @@
 
 
 table{
-    table-layout: fixed;
     text-align: center;
     width: 90%;
     display: flex;
