@@ -78,7 +78,7 @@
         </div>
       </form>
       <button id = "submitButton" type="none" class = "form-submit hoverScale-up" onclick="login()">Login</button>
-      <a target="_blank" rel="noreferrer external" href="./signup.php"><p>Create an account</p></a>
+      <a href="./signup.php"><p>Create an account</p></a>
 
     </div>
 

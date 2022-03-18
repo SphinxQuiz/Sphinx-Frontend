@@ -2,7 +2,7 @@
   "display": "standalone",
   "short_name": "Sphinx",
   "start_url": "https://sphinxquiz.fr/",
-  "scope": "./",
+  "scope": "https://sphinxquiz.fr/",
   "icons": [
     {
       "src": "manifest-icon-192.maskable.png",
