@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/leaderboard.css" />
     <link rel="stylesheet" href="css/navbar.css" />
 
-    <link rel="manifest" href="./site.webmanifest"/> 
+    <link rel="manifest" href="manifest.json"/> 
 
     <!-- icons --> 
     <link rel="icon" type="image/png" sizes="196x196" href="./assets/icons/favicon-196.png">

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/index.css" />
 
-    <link rel="manifest" href="./site.webmanifest"/> 
+    <link rel="manifest" href="manifest.json"/> 
 
 
 

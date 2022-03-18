@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="css/profile.css" />
     <link rel="stylesheet" href="css/navbar.css" />
 
-    <link rel="manifest" href="./site.webmanifest"/> 
+    <link rel="manifest" href="manifest.json"/> 
 
-    <script src="js/gofullscreen.js" type="text/javascript"></script>
 
 
     <!-- icons --> 
@@ -66,7 +65,6 @@
     <div id="main-div" class="centered">
         <div class="container">
             <h1 class="notranslate" id="profileTitle">???</h1>
-            <button class="logout-button" onclick="logout()">Logout</button>
             <div class="ligne" id ="elo-ligne">
                 <h2 id="elo" class="label notranslate">???</h2>
                 <h2 id="ratio" class="label notranslate">???</h2>
@@ -88,7 +86,10 @@
         <div id ="loading-div" class="gif-div">
             <img id = "loading-gif" src="assets/loading-gif.gif" alt="loading gif">
         </div>
+        <button class="logout-button" onclick="logout()">Logout</button>
+
     </div>
+    
 </body>
 
 <script src = "js/auth.js"></script>

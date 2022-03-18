@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/navbar.css"/>
 
-    <link rel="manifest" href="./site.webmanifest"/> 
+    <link rel="manifest" href="manifest.json"/> 
 
 
     <!-- icons --> 

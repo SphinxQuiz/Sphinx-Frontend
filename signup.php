@@ -8,9 +8,8 @@
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/sign-form.css" />
 
-    <link rel="manifest" href="./site.webmanifest"/> 
+    <link rel="manifest" href="manifest.json"/> 
 
-    <script src="js/gofullscreen.js" type="text/javascript"></script>
 
 
     <!-- icons --> 

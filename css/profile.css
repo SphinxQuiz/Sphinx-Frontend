@@ -59,10 +59,10 @@ body {
 
   .logout-button {
     width: 100px;
-    margin-bottom: 10px;
+    margin: 15px;
   }
   .label {
-    font-size: 25px;
+    font-size: 20px;
   }
   .ligne{
     margin: 0px;

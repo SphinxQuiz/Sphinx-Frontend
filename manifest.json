@@ -1,8 +1,10 @@
 {
+  "dir": "ltr",
   "display": "standalone",
   "short_name": "Sphinx",
-  "start_url": "https://sphinxquiz.fr/",
-  "scope": "https://sphinxquiz.fr/",
+  "start_url": "/",
+  "orientation": "any",
+  "scope": "/",
   "icons": [
     {
       "src": "manifest-icon-192.maskable.png",
