@@ -1,6 +1,6 @@
 xhr = new XMLHttpRequest()
 
-const email = document.getElementById("emailInput")
+const username = document.getElementById("usernameInput")
 const password = document.getElementById("passwordInput")
 
 const apiUrl = "https://sphinx-backend.herokuapp.com"
@@ -39,11 +39,11 @@ function passwordReveal(){
 
 
 function login(){
-    if(!email.value|| !password.value){
+    if(!username.value|| !password.value){
         showMessage("Veuillez renseigner tout les champs")
 
     }
-    else if (email.value != null && password != null){
+    else if (username.value != null && password != null){
         let oldText = submitButton.innerText
 
         printDots(submitButton)
@@ -59,13 +59,14 @@ function login(){
             }
             else{
                 let message = JSON.parse(xhr.responseText)
-                sessionStorage.setItem("token", message.token)
-                window.location.replace("./quiz.php")
+                console.log(message.token)
+                localStorage.setItem("token", message.token)
+                //window.location.replace("./quiz.php")
             }
         })
 
         xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-        xhr.send(JSON.stringify({"email": email.value, "password": password.value}))
+        xhr.send(JSON.stringify({"username": username.value, "password": password.value}))
 
     }
 

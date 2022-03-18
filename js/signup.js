@@ -81,7 +81,7 @@ function signup(){
             }
             else if (xhr.status == 201){
                 let message = JSON.parse(xhr.responseText)
-                sessionStorage.setItem("token", message.token)
+                localStorage.setItem("token", message.token)
                 showMessage(message.message, true)
                 //window.location.replace("./quiz.php")
             }

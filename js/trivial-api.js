@@ -60,7 +60,7 @@ async function displayData() {
 
     xhr.open("GET", url, false)
 
-    xhr.setRequestHeader("Authorization", sessionStorage.getItem("token"))
+    xhr.setRequestHeader("Authorization", localStorage.getItem("token"))
     xhr.addEventListener("load", () => {
       if (xhr.status != 200) { // On check si on a pas recu d'erreur
         alert(`Error ${xhr.status}: ${xhr.statusText}`); 
@@ -159,7 +159,7 @@ async function reveal(whichButton) {
   let xmlAnswer = new XMLHttpRequest()
 
   xmlAnswer.open("POST", urlAnswer, true)
-  xmlAnswer.setRequestHeader("Authorization", sessionStorage.getItem("token"))
+  xmlAnswer.setRequestHeader("Authorization", localStorage.getItem("token"))
 
    xmlAnswer.addEventListener("load", () => {
      clearInterval(timeout)
@@ -189,7 +189,7 @@ async function reveal(whichButton) {
   xmlAnswer.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xmlAnswer.send(JSON.stringify({
       "difficulty": difficulty,
-      "token": sessionStorage.getItem("token"),
+      "token": localStorage.getItem("token"),
       "answer": whichButton.value
     })
   )

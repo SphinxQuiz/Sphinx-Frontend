@@ -66,8 +66,8 @@
 
 
             <div class="form-item">
-                <h1 class="form-label">Email</h1>
-                <input id= "emailInput" class="form-input"type="text" placeholder="Enter Email" name="email" required>  
+                <h1 class="form-label">Username</h1>
+                <input id= "usernameInput" class="form-input" type="text" placeholder="Enter Username" name="username" required>  
             </div>
             <div class="form-item">
                 <h1 class="form-label">Password</h1>

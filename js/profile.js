@@ -15,7 +15,7 @@ const animation = document.getElementById("loading-div");
 
 
 function logout(){
-    sessionStorage.clear()
+    localStorage.clear()
     window.location.replace("../index.php")
 }
 
@@ -26,7 +26,7 @@ function loadData(){
 
     xhr.open("POST", urlProfile, false)
 
-    xhr.setRequestHeader("Authorization", sessionStorage.getItem("token"))
+    xhr.setRequestHeader("Authorization", localStorage.getItem("token"))
 
     showAnimation();
 
@@ -68,7 +68,7 @@ function loadData(){
 
 
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    let token = sessionStorage.getItem("token")
+    let token = localStorage.getItem("token")
     xhr.send(JSON.stringify({token}))
 
 }

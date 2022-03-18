@@ -10,7 +10,7 @@ const animation = document.getElementById("loading-div");
 
 
 function logout(){
-    sessionStorage.clear()
+    localStorage.clear()
     window.location.replace("../index.php")
 }
 
@@ -20,7 +20,7 @@ function loadData(){
     let urlProfile = apiUrl + "/api/auth/getLeaderboard"
 
     xhr.open("POST", urlProfile, false)
-    xhr.setRequestHeader("Authorization", sessionStorage.getItem("token"))
+    xhr.setRequestHeader("Authorization", localStorage.getItem("token"))
 
     showAnimation();
 
