@@ -9,7 +9,6 @@
 
     <link rel="manifest" href="./site.webmanifest"/> 
 
-    <script src="js/gofullscreen.js" type="text/javascript"></script>
 
 
     <!-- icons --> 
@@ -57,7 +56,7 @@
       <h3 id="question-index-label" class="small-title">Learn with fun !</h3>
       <div class="both-centered-parent">
         <div class="both-centered-child-index-button">
-          <div id="ligne1" class="ligne"><a target=_self href = "./signup.php" class="index-button hoverScale-up">Signup</a><a target=_self href="./login.php" class="index-button hoverScale-up">Login</a></div>
+          <div id="ligne1" class="ligne"><a href = "/signup.php" class="index-button hoverScale-up">Signup</a><a href="/login.php" class="index-button hoverScale-up">Login</a></div>
         </div>
       </div>
     </div>
