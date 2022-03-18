@@ -59,9 +59,8 @@ function login(){
             }
             else{
                 let message = JSON.parse(xhr.responseText)
-                console.log(message.token)
                 localStorage.setItem("token", message.token)
-                //window.location.replace("./quiz.php")
+                window.location.replace("./quiz.php")
             }
         })
 
