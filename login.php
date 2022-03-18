@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Signup</title>
+    <title>Login</title>
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/sign-form.css" />
     <link rel="stylesheet" href="./css/style.css" />
@@ -77,7 +77,7 @@
         </div>
       </form>
       <button id = "submitButton" type="none" class = "form-submit hoverScale-up" onclick="login()">Login</button>
-      <a href="./signup.php"><p>Create an account</p></a>
+      <a target=_self href="./signup.php"><p>Create an account</p></a>
 
     </div>
 
