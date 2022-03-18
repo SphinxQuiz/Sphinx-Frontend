@@ -9,6 +9,9 @@
 
     <link rel="manifest" href="./site.webmanifest"/> 
 
+    <script src="js/gofullscreen.js" type="text/javascript"></script>
+
+
     <!-- icons --> 
     <link rel="icon" type="image/png" sizes="196x196" href="./assets/icons/favicon-196.png">
     <link rel="apple-touch-icon" href="./assets/icons/apple-icon-180.png">

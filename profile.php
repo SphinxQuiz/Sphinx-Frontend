@@ -2,12 +2,14 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/profile.css" />
     <link rel="stylesheet" href="css/navbar.css" />
 
     <link rel="manifest" href="./site.webmanifest"/> 
+
+    <script src="js/gofullscreen.js" type="text/javascript"></script>
 
 
     <!-- icons --> 
@@ -43,6 +45,7 @@
 
     <!-- Custom google dropdown -->
     <script type="text/javascript">
+    
 
     var duplicate_google_translate_counter = 0;//this stops google adding button multiple times
 
@@ -73,9 +76,7 @@
                 <h2 id="currentStreak" class="label">???</h2>
             </div>
 
-                
-
-
+    
 
             <div id="google_translate_element"></div>
             

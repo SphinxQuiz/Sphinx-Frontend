@@ -2,13 +2,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <title>Signup</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/sign-form.css" />
 
     <link rel="manifest" href="./site.webmanifest"/> 
+
+    <script src="js/gofullscreen.js" type="text/javascript"></script>
 
 
     <!-- icons --> 
