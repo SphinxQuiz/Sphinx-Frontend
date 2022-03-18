@@ -1,6 +1,8 @@
 {
   "display": "standalone",
   "short_name": "Sphinx",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
     {
       "src": "manifest-icon-192.maskable.png",

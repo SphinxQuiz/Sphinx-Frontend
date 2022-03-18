@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="./css/style.css" />
 
     <link rel="manifest" href="./site.webmanifest"/> 
-    <key>FullScreen</key>
-    <true/>
 
     <!-- icons --> 
     <link rel="icon" type="image/png" sizes="196x196" href="./assets/icons/favicon-196.png">
@@ -78,7 +76,7 @@
         </div>
       </form>
       <button id = "submitButton" type="none" class = "form-submit hoverScale-up" onclick="login()">Login</button>
-      <a target="_self" href="./signup.php"><p>Create an account</p></a>
+      <a target="_blank" rel="noreferrer external" href="./signup.php"><p>Create an account</p></a>
 
     </div>
 

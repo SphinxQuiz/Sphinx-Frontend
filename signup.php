@@ -83,7 +83,7 @@
         </div>
       </form>
       <button id = "submitButton" class = "form-submit hoverScale-up" onclick="signup()" >Signup</button>
-            <a target="_self" href="./login.php"><p>Already have an account ?</p></a>
+            <a target="_blank" href="./login.php"><p>Already have an account ?</p></a>
     </div>
 
   </body>
