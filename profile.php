@@ -71,9 +71,12 @@
                 <h2 id="elo" class="label notranslate">???</h2>
                 <h2 id="ratio" class="label notranslate">???</h2>
             </div>
-            <div class="ligne" id ="elo-ligne">
+            <div class="ligne" >
                 <h2 id="maxStreak" class="label">???</h2>
                 <h2 id="currentStreak" class="label">???</h2>
+            </div>
+            <div class="ligne" id ="bottomLine">
+                <h2 id="totalQ" class="label">???</h2>
             </div>
 
     

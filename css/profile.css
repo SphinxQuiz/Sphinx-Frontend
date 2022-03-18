@@ -3,7 +3,7 @@ body {
 }
 
 #profileTitle {
-  margin: 50px 0px 20px 0px;
+  margin: 30px 0px 20px 0px;
   font-size: 60px;
 }
 
@@ -73,7 +73,7 @@ body {
     margin: 10px;
   }
 
-  #elo-ligne{
+  #bottom-line{
     margin-bottom: 0px;
   }
 

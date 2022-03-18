@@ -7,6 +7,7 @@ const elo = document.getElementById("elo")
 const ratio = document.getElementById("ratio")
 const maxStreak = document.getElementById("maxStreak")
 const currentStreak = document.getElementById("currentStreak")
+const total = document.getElementById("totalQ")
 
 const main_div = document.getElementById("main-div");
 const animation = document.getElementById("loading-div");
@@ -52,6 +53,9 @@ function loadData(){
         elo.innerText = "Score : " + result.score
         
         ratioCalcul = result.goodAnswer / result.badAnswer
+
+        totalNumber = result.goodAnswer + result.badAnswer
+        total.innerText = "Total Questions : " + totalNumber
 
         ratio.innerText = "Ratio : " + ratioCalcul.toFixed(2)
 
