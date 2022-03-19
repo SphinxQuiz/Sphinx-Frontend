@@ -62,7 +62,7 @@
     </div>
 
   </body>
-  <script src = "js/apiurl.js"></script>
-  <script src="js/trivial-api.js"></script>
+  <script type="text/javascript" src = "js/apiurl.js"></script>
+  <script type="text/javascript" src="js/trivial-api.js"></script>
 
 </html>

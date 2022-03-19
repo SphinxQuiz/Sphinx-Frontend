@@ -92,9 +92,9 @@
     
 </body>
 
-<script src = "js/apiurl.js"></script>
-<script src = "js/auth.js"></script>
-<script src = "js/profile.js"></script>
+<script type="text/javascript" src = "js/apiurl.js"></script>
+<script type="text/javascript" src = "js/auth.js"></script>
+<script type="text/javascript" src = "js/profile.js"></script>
 
 
 </html>
