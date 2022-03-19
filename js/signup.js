@@ -9,8 +9,7 @@ const submitButton = document.getElementById("submitButton")
 let password1Show = false
 let password2Show = false
 
-const apiUrl = "https://sphinx-backend.herokuapp.com"
-//const apiUrl = "http://localhost:3000"
+
 
 const urlSignup = apiUrl + "/api/auth/signup";
 

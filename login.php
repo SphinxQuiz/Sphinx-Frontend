@@ -82,6 +82,7 @@
     </div>
 
   </body>
+  <script src = "js/apiurl.js"></script>
   <script src="js/login.js"></script>
   <script src="./js/alert.js"></script>
 
