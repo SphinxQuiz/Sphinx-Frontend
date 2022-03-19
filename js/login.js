@@ -3,8 +3,7 @@ xhr = new XMLHttpRequest()
 const username = document.getElementById("usernameInput")
 const password = document.getElementById("passwordInput")
 
-const apiUrl = "https://sphinx-backend.herokuapp.com"
-//const apiUrl = "http://localhost:3000"
+
 
 const urlLogin = apiUrl + "/api/auth/login";
 let passwordShow = false
@@ -60,6 +59,7 @@ function login(){
             else{
                 let message = JSON.parse(xhr.responseText)
                 localStorage.setItem("token", message.token)
+                localStorage.setItem("username", message.username)
                 window.location.replace("./quiz.php")
             }
         })

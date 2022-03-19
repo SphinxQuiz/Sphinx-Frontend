@@ -1,5 +1,3 @@
-const apiUrl = "https://sphinx-backend.herokuapp.com"
-//const apiUrl = "http://localhost:3000"
 
 
 const leadeboard = document.getElementById("leaderboardBody")
@@ -48,7 +46,21 @@ function loadData(){
           
           let rank = document.createElement("td")
           rank.classList.add("cell")
-          rank.innerText = i + 1
+          rank.classList.add("notranslate")
+          if(i + 1 == 1){
+            rank.innerText = "🥇"
+
+          }
+          else if (i  + 1 == 2){
+            rank.innerText = "🥈"
+
+          }
+          else if(i  + 1 == 3){
+            rank.innerText = "🥉"
+          }
+          else{
+            rank.innerText = i + 1
+          }
 
           let score = document.createElement("td")
           score.classList.add("cell")
@@ -62,6 +74,9 @@ function loadData(){
           username.classList.add("notranslate")
 
           username.innerText = result[i].username
+          if(result[i].username == localStorage.getItem("username")){
+            trBody.style.backgroundColor = "#f2f0c2"
+          }
 
           let ratio = document.createElement("td")
           ratio.classList.add("cell")
@@ -69,6 +84,7 @@ function loadData(){
 
           let maxStreak = document.createElement("td")
           maxStreak.classList.add("cell")
+          maxStreak.classList.add("notranslate")
           maxStreak.innerText = result[i].maxStreak
 
           if(result[i].goodAnswer == 0 || result[i].badAnswer == 0 ){
