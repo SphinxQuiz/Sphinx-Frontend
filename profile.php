@@ -92,6 +92,7 @@
     
 </body>
 
+<script src = "js/apiurl.js"></script>
 <script src = "js/auth.js"></script>
 <script src = "js/profile.js"></script>
 

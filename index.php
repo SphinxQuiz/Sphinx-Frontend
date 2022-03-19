@@ -62,6 +62,7 @@
     </div>
 
   </body>
+  <script src = "js/apiurl.js"></script>
   <script src="js/trivial-api.js"></script>
 
 </html>
