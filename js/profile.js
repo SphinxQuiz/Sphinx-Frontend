@@ -50,18 +50,18 @@ function loadData(){
         }
 
         profileTitle.innerText = result.username
-        elo.innerText = "Score : " + result.score
+        elo.innerText = "💯 Score : " + result.score
         
         ratioCalcul = result.goodAnswer / result.badAnswer
 
         totalNumber = result.goodAnswer + result.badAnswer
-        total.innerText = "Total Questions : " + totalNumber
+        total.innerText = "📚 Total Questions : " + totalNumber
 
-        ratio.innerText = "Ratio : " + ratioCalcul.toFixed(2)
+        ratio.innerText = "📊 Ratio : " + ratioCalcul.toFixed(2)
 
-        maxStreak.innerText = "Max streak : " + result.maxStreak
+        maxStreak.innerText = "🔥 Max streak : " + result.maxStreak
 
-        currentStreak.innerText = "Current streak : " + result.currentStreak
+        currentStreak.innerText = "🎏 Current streak : " + result.currentStreak
 
       }
     })
