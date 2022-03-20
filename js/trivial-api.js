@@ -7,11 +7,12 @@ const categorie_label = document.getElementById("categorie");
 const difficulty_tag_label = document.getElementById("difficulty-tag");
 const question_label = document.getElementById("question");
 const buttons = document.getElementsByClassName("quiz-button");
-const ligne2 = document.getElementById("ligne2");
+const ligne1 = document.getElementById("ligne1");
 let questionList = [];
 const animation = document.getElementById("loading-div");
 const main_div = document.getElementById("main-div");
 const next_button = document.getElementById("next-question");
+const clock = document.getElementById("clock");
 
 const goodAudio = new Audio("./assets/good.wav")
 const badAudio = new Audio("./assets/bad.wav")
@@ -21,6 +22,8 @@ let questionType;
 let difficulty = "";
 let id;
 
+let timeLeft;
+let clockTimeout;
 
 
 let nb = 1;
@@ -50,6 +53,7 @@ function hideAnimation() {
 
 // Retrieve and display data on the page
 async function displayData() {
+  googleTranslateElementInit()
 
   
   const url = apiUrl + "/api/question/getOne";
@@ -61,12 +65,18 @@ async function displayData() {
 
     xhr.setRequestHeader("Authorization", localStorage.getItem("token"))
     xhr.addEventListener("load", () => {
+      
+
+
       if (xhr.status != 200) { // On check si on a pas recu d'erreur
         alert(`Error ${xhr.status}: ${xhr.statusText}`); 
         window.location.replace("../index.php")
       } else { 
-        hideAnimation();
+        setTimeout(countdown, 1000);
+
+
         const r = JSON.parse(xhr.responseText)
+
 
         id = r.id
 
@@ -76,6 +86,15 @@ async function displayData() {
           buttonNoTranslate()
         }
 
+        if(difficulty == "hard"){
+          timeLeft = 21
+        }
+        else{
+          timeLeft = 16
+        }
+
+
+
         difficulty = r.difficulty
         difficulty_tag_label.innerText = "Difficulty: " + difficulty;
 
@@ -84,6 +103,7 @@ async function displayData() {
 
         questionList = r.tabSend;
         buttonFill(r.type);
+        hideAnimation();
 
         }
       });
@@ -108,11 +128,11 @@ function buttonFill(type) {
       i++;
     }
   } else {
-    ligne2.style.display = "none";
-    buttons[0].value = "True";
-    buttons[0].innerText = "Vrai";
-    buttons[1].value = "False";
-    buttons[1].innerText = "Faux";
+    ligne1.style.display = "none";
+    buttons[2].value = "True";
+    buttons[2].innerText = "Vrai";
+    buttons[3].value = "False";
+    buttons[3].innerText = "Faux";
   }
 }
 
@@ -132,9 +152,9 @@ function htmlEntities(str) {
 
 document.querySelectorAll(".quiz-button").forEach((button) => {
   button.addEventListener("click", (b) => {
+    timeLeft = -1
+    clearTimeout(cloackTimeout)
     reveal(button)
-
-    
   });
 });
 
@@ -145,7 +165,7 @@ function disableButtons() {
   });
 }
 
-async function reveal(whichButton) {
+async function reveal(whichButton, timeouted = false) {
 
   let urlAnswer = apiUrl + "/api/question/getFromId/" + id
 
@@ -170,6 +190,10 @@ async function reveal(whichButton) {
       let reponse = JSON.parse(xmlAnswer.responseText)
       let a = reponse.correct_answer
 
+      if(timeouted){
+        badAudio.play()
+      }
+    
       const value = whichButton.value;
 
 
@@ -245,3 +269,21 @@ function displayQuestionIndex() {
     console.log(error);
   }
 }
+
+
+function countdown() {
+  timeLeft -= 1;
+
+	document.getElementById("seconds").innerHTML = String( timeLeft );
+
+	if (timeLeft > 0) {
+		cloackTimeout = setTimeout(countdown, 1000);
+	}
+  else if(timeLeft == 0){
+    b = document.createElement("button")
+    reveal(b, true)
+    clock.style.border = "2px solid red"
+  }
+
+};
+
