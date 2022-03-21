@@ -56,7 +56,7 @@ function hideAnimation() {
 
 function reset(){
 
-  await googleTranslateElementInit()
+  googleTranslateElementInit()
 
 
   cloackTimeout = "null"
