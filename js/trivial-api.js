@@ -56,7 +56,7 @@ function hideAnimation() {
 
 function reset(){
 
-  await googleTranslateElementInit()
+
 
 
   cloackTimeout = "null"
@@ -71,6 +71,7 @@ function reset(){
   next_button.style.display ="none"
   categorie_label.style.display ="block"
   clock.style.border = "2px solid blueviolet"
+  ligne1.style.display = "flex";
 
   displayData()
 
