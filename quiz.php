@@ -63,11 +63,18 @@
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 -->
 <script type="text/javascript">
+
   function googleTranslateElementInit() {
-    new google.translate.TranslateElement({pageLanguage: 'ro',
+
+      googleTranslateEl = new google.translate.TranslateElement({pageLanguage: 'en',
       includedLanguages: 'af,ar,de,en,es,fr,hu,it,ja,no,ro,ru,tr,zh-CN',
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
       autoDisplay: false}, 'google_translate_element');
+    
+
+
+      var removePopup = document.getElementById('goog-gt-tt');
+      removePopup.parentNode.removeChild(removePopup);
   }
 
   function loadGoogleTranslate() {
@@ -127,7 +134,7 @@
             <span class="notranslate" id="seconds">20</span>
           </div>
         </div>
-        <div id="ligne2" class="ligne"><button class="quiz-button hoverScale-up noselect">Reponse A</button><button class="quiz-button hoverScale-up noselect">Reponse B</button></div>
+        <div id="ligne2" class="ligne"><button id="boolean-btn-1" class="quiz-button hoverScale-up noselect">Reponse A</button><button id="boolean-btn-2" class="quiz-button hoverScale-up noselect">Reponse B</button></div>
       </div>
     </div>
     <div id ="loading-div" class="gif-div">

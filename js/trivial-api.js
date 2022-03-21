@@ -15,6 +15,10 @@ const next_button = document.getElementById("next-question");
 const clock = document.getElementById("clock");
 const playButton = document.getElementById("play-button")
 const playDiv = document.getElementById("play-div")
+
+
+
+
 const goodAudio = new Audio("./assets/good.wav")
 const badAudio = new Audio("./assets/bad.wav")
 const clockAudio = new Audio("./assets/clock.wav")
@@ -30,7 +34,7 @@ let clockTimeout;
 
 coolBorder(playButton)
 
-
+let r;
 
 
 let nb = 1;
@@ -63,9 +67,29 @@ function start(){
   reset()
 }
 
+let googleElements;
+let googleElements1;
+let googleElements2;
 
 
 function reset(){
+
+  googleElements = Array.from(document.querySelectorAll(".goog-te-menu-frame"))
+  googleElements1 = Array.from(document.querySelectorAll(".skiptranslate"))
+  googleElements2 = Array.from(document.querySelectorAll(".goog-te-spinner-pos"))
+
+  
+
+  googleElements.forEach(e => {
+    e.remove()
+  })
+
+  googleElements1.forEach(e => {
+    e.remove()
+  })  
+  googleElements2.forEach(e => {
+    e.remove()
+  })
 
   loadGoogleTranslate()
 
@@ -75,8 +99,11 @@ function reset(){
   document.querySelectorAll("button").forEach((button) => {
     button.disabled = false;
     button.classList.add("hoverScale-up");
+    button.classList.remove("notranslate")
     button.style.backgroundColor = "blueviolet"
   })
+
+
   next_button.style.backgroundColor = "grey"
   next_button.style.display ="none"
   categorie_label.style.display ="block"
@@ -114,16 +141,16 @@ async function displayData() {
       } else { 
         setTimeout(countdown, 1000);
 
-
-        const r = JSON.parse(xhr.responseText)
-
+        r = JSON.parse(xhr.responseText)
 
         id = r.id
 
         categorie_label.innerText = "Categorie - " + r.category;
 
-        if(r.category == "Entertainment: Video Games" || r.category == "Entertainment: Musicals & Theatres" || r.category == "Entertainment: Music" || r.category == "Entertainment: Television"  || r.category == "Entertainment: Cartoon & Animations"){
-          buttonNoTranslate()
+        if(r.type == "multiple"){
+          if(r.category == "Entertainment: Video Games" || r.category == "Entertainment: Musicals & Theatres" || r.category == "Entertainment: Music" || r.category == "Entertainment: Television"  || r.category == "Entertainment: Cartoon & Animations" || r.category == "Entertainment: Japanese Anime & Manga" ){
+            buttonNoTranslate()
+          }
         }
           timeLeft = 20
         
@@ -148,9 +175,12 @@ async function displayData() {
 }
 
 function buttonNoTranslate(){
-  for (let b of buttons) {
-    b.classList.add("notranslate")
+  if(questionType == "multiple"){
+    for (let b of buttons) {
+      b.classList.add("notranslate")
+    }
   }
+
 }
 
 function buttonFill(type) {
@@ -162,12 +192,14 @@ function buttonFill(type) {
       b.value = questionList[i];
       i++;
     }
-  } else {
+  } else{
     ligne1.style.display = "none";
-    buttons[2].value = "True";
-    buttons[2].innerText = "True";
     buttons[3].value = "False";
-    buttons[3].innerText = "False";
+    buttons[3].innerText = "false";
+    buttons[2].value = "True";
+    buttons[2].innerText = "true";
+
+
   }
 }
 
