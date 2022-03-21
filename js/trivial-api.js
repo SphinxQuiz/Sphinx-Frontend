@@ -55,6 +55,10 @@ function hideAnimation() {
 }
 
 function reset(){
+
+  await googleTranslateElementInit()
+
+
   cloackTimeout = "null"
   document.getElementById("seconds").innerHTML = "15"
 
@@ -74,7 +78,6 @@ function reset(){
 
 // Retrieve and display data on the page
 async function displayData() {
-  googleTranslateElementInit()
 
   
   const url = apiUrl + "/api/question/getOne";

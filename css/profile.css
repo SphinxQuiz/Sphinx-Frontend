@@ -2,9 +2,10 @@ body {
   overflow-x: hidden;
 }
 
+
 #profileTitle {
-  margin: 20px 0px 10px 0px;
-  font-size: 60px;
+  margin: 10px 0px 0px 0px;
+  font-size: 3em;
   color: rgb(82, 0, 114);
   border-radius: 50%;
   padding-top: 10px;
@@ -46,6 +47,11 @@ body {
 
 @media only screen and (max-width: 800px) {
 
+  .logo{
+    display: none;
+  }
+  
+
   #profil-background{
     margin: 10px 2%;
 
@@ -70,11 +76,12 @@ body {
 @media only screen and (max-width: 320px) {
 
   #profile-background{
-    margin: 10px 5%;
+    margin: 20px 5%;
   }
 
   #profileTitle {
-    font-size: 40px;
+    margin-top: 20px;
+    font-size: 3em;
   }
 
   .logout-button {
