@@ -96,11 +96,11 @@
         <h2>You will have 15 seconds to choose the right answer ✅ for the question asked</h2>
         <h2>If you don't answer within the allotted time you loose points 📉</h2>
 
-        <h1 class="rule-title">The points : </h1>
+        <h1 class="rule-title">🎯 Points : </h1>
         <ul>
-          <li><h2>📕 Hard question --> 30 points</h2></li>
-          <li><h2>📘 Medium question --> 20 points</h2></li>
-          <li><h2>📗 Easy question --> 10 points</h2></li>
+          <li><h2>📕 Hard question : <strong>30 points</strong></h2></li>
+          <li><h2>📘 Medium question : <strong>20 points</strong></h2></li>
+          <li><h2>📗 Easy question : <strong>10 points</strong></h2></li>
 
         </ul>
 

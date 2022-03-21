@@ -47,7 +47,7 @@ function printDots(element) {
 
 // Show the loading animation
 function showAnimation() {
-  main_div.style.display = "none";
+  main_div.style.display = "none"
   animation.style.display = "block";
 }
 
@@ -165,14 +165,17 @@ function buttonFill(type) {
   } else {
     ligne1.style.display = "none";
     buttons[2].value = "True";
-    buttons[2].innerText = "Vrai";
+    buttons[2].innerText = "True";
     buttons[3].value = "False";
-    buttons[3].innerText = "Faux";
+    buttons[3].innerText = "False";
   }
 }
 
 function htmlEntities(str) {
   return String(str)
+    .replace(/&deg/g, "°")
+    .replace(/&Delta/g, "Δ")
+    .replace(/&aring/g, "å")
     .replace(/&rdquo/g, "”")
     .replace(/&eacute;/g, "é")
     .replace(/&amp;/g, "&")
