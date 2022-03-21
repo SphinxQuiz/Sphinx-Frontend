@@ -124,7 +124,7 @@
         <div id="ligne1" class="ligne"><button class="quiz-button hoverScale-up noselect">Reponse A</button><button class="quiz-button hoverScale-up noselect">Reponse B</button></div>
         <div class="ligne">
           <div id="clock">
-            <span class="notranslate" id="seconds">15</span>
+            <span class="notranslate" id="seconds">20</span>
           </div>
         </div>
         <div id="ligne2" class="ligne"><button class="quiz-button hoverScale-up noselect">Reponse A</button><button class="quiz-button hoverScale-up noselect">Reponse B</button></div>

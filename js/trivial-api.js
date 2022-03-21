@@ -70,7 +70,7 @@ function reset(){
   loadGoogleTranslate()
 
   cloackTimeout = "null"
-  document.getElementById("seconds").innerHTML = "15"
+  document.getElementById("seconds").innerHTML = "20"
 
   document.querySelectorAll("button").forEach((button) => {
     button.disabled = false;
@@ -125,7 +125,7 @@ async function displayData() {
         if(r.category == "Entertainment: Video Games" || r.category == "Entertainment: Musicals & Theatres" || r.category == "Entertainment: Music" || r.category == "Entertainment: Television"  || r.category == "Entertainment: Cartoon & Animations"){
           buttonNoTranslate()
         }
-          timeLeft = 15
+          timeLeft = 20
         
 
 
