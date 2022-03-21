@@ -37,7 +37,6 @@ let nb = 1;
 
 
 function printDots(element) {
-    console.log(element)
     element.innerText = ""
     for(let i = 0; i<nb; i ++){
         element.innerText += "."
@@ -191,7 +190,6 @@ document.querySelectorAll(".quiz-button").forEach((button) => {
     timeLeft = -1
     if(clockTimeout != null){
       clearTimeout(clockTimeout)
-      console.log("test")
     }
     reveal(button)
   });
