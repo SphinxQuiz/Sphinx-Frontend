@@ -60,7 +60,7 @@ function login(){
                 let message = JSON.parse(xhr.responseText)
                 localStorage.setItem("token", message.token)
                 localStorage.setItem("username", message.username)
-                window.location.replace("./quiz.php")
+                window.location.replace("./profile.php")
             }
         })
 

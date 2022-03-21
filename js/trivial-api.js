@@ -16,6 +16,7 @@ const clock = document.getElementById("clock");
 
 const goodAudio = new Audio("./assets/good.wav")
 const badAudio = new Audio("./assets/bad.wav")
+const clockAudio = new Audio("./assets/clock.wav")
 
 
 let questionType;
@@ -24,6 +25,8 @@ let id;
 
 let timeLeft;
 let clockTimeout;
+
+
 
 
 let nb = 1;
@@ -51,6 +54,24 @@ function hideAnimation() {
   animation.style.display = "none";
 }
 
+function reset(){
+  cloackTimeout = "null"
+  document.getElementById("seconds").innerHTML = "15"
+
+  document.querySelectorAll("button").forEach((button) => {
+    button.disabled = false;
+    button.classList.add("hoverScale-up");
+    button.style.backgroundColor = "blueviolet"
+  })
+  next_button.style.backgroundColor = "grey"
+  next_button.style.display ="none"
+  categorie_label.style.display ="block"
+  clock.style.border = "2px solid blueviolet"
+
+  displayData()
+
+}
+
 // Retrieve and display data on the page
 async function displayData() {
   googleTranslateElementInit()
@@ -63,9 +84,11 @@ async function displayData() {
 
     xhr.open("GET", url, false)
 
+
+    clockAudio.play()
+
     xhr.setRequestHeader("Authorization", localStorage.getItem("token"))
     xhr.addEventListener("load", () => {
-      
 
 
       if (xhr.status != 200) { // On check si on a pas recu d'erreur
@@ -85,13 +108,8 @@ async function displayData() {
         if(r.category == "Entertainment: Video Games" || r.category == "Entertainment: Musicals & Theatres" || r.category == "Entertainment: Music" || r.category == "Entertainment: Television"  || r.category == "Entertainment: Cartoon & Animations"){
           buttonNoTranslate()
         }
-
-        if(difficulty == "hard"){
-          timeLeft = 21
-        }
-        else{
-          timeLeft = 16
-        }
+          timeLeft = 15
+        
 
 
 
@@ -153,7 +171,10 @@ function htmlEntities(str) {
 document.querySelectorAll(".quiz-button").forEach((button) => {
   button.addEventListener("click", (b) => {
     timeLeft = -1
-    clearTimeout(cloackTimeout)
+    if(clockTimeout != null){
+      clearTimeout(clockTimeout)
+      console.log("test")
+    }
     reveal(button)
   });
 });
@@ -168,6 +189,8 @@ function disableButtons() {
 async function reveal(whichButton, timeouted = false) {
 
   let urlAnswer = apiUrl + "/api/question/getFromId/" + id
+  clockAudio.pause()
+  clockAudio.currentTime = 0
 
 
   let oldText = whichButton.innerText
@@ -189,6 +212,7 @@ async function reveal(whichButton, timeouted = false) {
     } else { 
       let reponse = JSON.parse(xmlAnswer.responseText)
       let a = reponse.correct_answer
+
 
       if(timeouted){
         badAudio.play()
@@ -224,9 +248,9 @@ async function reveal(whichButton, timeouted = false) {
 function revealGreen(whichButton, a){
   if (questionType === "boolean") {
     if (whichButton.value == "True") {
-      document.querySelectorAll(".quiz-button")[1].style.background = "green";
+      document.querySelectorAll(".quiz-button")[3].style.background = "green";
     } else {
-      document.querySelectorAll(".quiz-button")[0].style.background = "green";
+      document.querySelectorAll(".quiz-button")[2].style.background = "green";
     }
   } else {
     document.querySelectorAll("button").forEach((button) => {
@@ -284,6 +308,13 @@ function countdown() {
     reveal(b, true)
     clock.style.border = "2px solid red"
   }
+  else if (timeLeft < 0) {
+    document.getElementById("seconds").innerHTML = ""
+  }
 
 };
+
+function playClockAudio(){
+  clockAudio.play()
+}
 

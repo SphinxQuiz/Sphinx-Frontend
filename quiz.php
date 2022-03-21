@@ -67,22 +67,25 @@
 
     <?php include "./includes/navbar.php"?>
     <body onload='displayData()'>
+
+    <!--    <div class="centered">
+      <button onclick="start()">Play !</button>
+    </div>
+    -->
+
       
     <div id = "main-div" class="centered">
-      
-
-
     <h2 id="question" class="noselect"></h2>
       <h3 id="categorie"></h3>
       <h4 id="difficulty-tag"></h4>
       <div class="centered">
-        <button id="next-question" onclick="location.reload();">Next question</button>
+        <button id="next-question" onclick="reset()">Next question</button>
       </div>
       <div class="centered button-div">
         <div id="ligne1" class="ligne"><button class="quiz-button hoverScale-up noselect">Reponse A</button><button class="quiz-button hoverScale-up noselect">Reponse B</button></div>
         <div class="ligne">
           <div id="clock">
-            <span class="notranslate" id="seconds">...</span>
+            <span class="notranslate" id="seconds">15</span>
           </div>
         </div>
         <div id="ligne2" class="ligne"><button class="quiz-button hoverScale-up noselect">Reponse A</button><button class="quiz-button hoverScale-up noselect">Reponse B</button></div>

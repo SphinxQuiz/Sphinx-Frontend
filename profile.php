@@ -63,7 +63,7 @@
 <body onload="loadData()">
     <?php include "includes/navbar.php"?>
     <div id="main-div" class="centered">
-        <div class="container">
+        <div class="container" id = "profile-background">
             <h1 class="notranslate" id="profileTitle">???</h1>
             <div class="ligne" id ="elo-ligne">
                 <h2 id="elo" class="label notranslate">???</h2>
@@ -79,10 +79,11 @@
 
     
 
-            <div id="google_translate_element"></div>
             
             
         </div>
+        <div id="google_translate_element"></div>
+
         <div id ="loading-div" class="gif-div">
             <img id = "loading-gif" src="assets/loading-gif.gif" alt="loading gif">
         </div>
