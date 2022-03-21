@@ -49,9 +49,11 @@
 
     var duplicate_google_translate_counter = 0;//this stops google adding button multiple times
 
+    let googleTranslate;
+
     function googleTranslateElementInit() {
       if (duplicate_google_translate_counter == 0) {
-        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        googleTranslate = new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
       }
       duplicate_google_translate_counter++;
     }
@@ -66,7 +68,7 @@
 
 
     <?php include "./includes/navbar.php"?>
-    <body onload='displayData()'>
+    <body onload='reset()'>
 
     <!--    <div class="centered">
       <button onclick="start()">Play !</button>
