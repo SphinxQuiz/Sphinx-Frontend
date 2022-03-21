@@ -86,9 +86,9 @@
     </div>
 </body>
 
-<script src = "js/apiurl.js"></script>
-<script src = "js/auth.js"></script>
-<script src = "js/leaderboard.js"></script>
+<script type="text/javascript" src = "js/apiurl.js"></script>
+<script type="text/javascript" src = "js/auth.js"></script>
+<script type="text/javascript" src = "js/leaderboard.js"></script>
 
 
 </html>

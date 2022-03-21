@@ -1,4 +1,9 @@
+body{
+  overflow: hidden;
+}
+
 .background-index {
+  background-size: cover;
   overflow: hidden;
   background-color: blueviolet;
   background-image: linear-gradient(

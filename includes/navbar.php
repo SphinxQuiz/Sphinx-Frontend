@@ -13,25 +13,38 @@
       <div class="navbar">
         <h1 class="logo notranslate">Sphinx</h1>
         <ul class="desktop-list">
+          <a href="./leaderboard.php">
+            <li>
+              <i class="fa-solid fa-medal icons-white"></i>
+            </li>
+          </a>
+
+          <a href="quiz.php">
+            <li>
+              <i class="fa-solid fa-brain icons-white"></i>
+            </li>
+          </a>
+          <a href="profile.php">
           <li>
-            <a href="./leaderboard.php"><i class="fa-solid fa-medal icons-white"></i></a>
+            <i class="fa-solid fa-user icons-white"></i>
           </li>
-          <li>
-            <a href="quiz.php"><i class="fa-solid fa-brain icons-white"></i></a>
-          </li>
-          <li>
-            <a href="profile.php"><i class="fa-solid fa-user icons-white"></i></a>
-          </li>
+          </a>
         </ul>
         <ul class="mobile-list">
-          <li>
-            <a href="./leaderboard.php"><i class="fa-solid fa-medal icons-white"></i></a>
-          </li>
-          <li>
-            <a href="quiz.php"><i class="fa-solid fa-brain icons-white"></i></a>
-          </li>
-          <li>
-            <a href="profile.php"><i class="fa-solid fa-user icons-white"></i></a>
-          </li>
+          <a href="./leaderboard.php">
+            <li>
+              <i class="fa-solid fa-medal icons-white"></i>
+            </li>
+          </a>
+          <a href="quiz.php">
+            <li>
+              <i class="fa-solid fa-brain icons-white"></i>
+            </li>
+          </a>
+          <a href="profile.php">
+            <li>
+              <i class="fa-solid fa-user icons-white"></i>
+            </li>
+          </a>
         </ul>
       </div>

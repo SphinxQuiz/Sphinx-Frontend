@@ -21,7 +21,7 @@ body {
 
 .quiz-button {
   padding: 50px 40px;
-  margin: 40px;
+  margin: 40px 70px;
   border-radius: 10px;
   background-color: blueviolet;
   color: whitesmoke;
@@ -61,6 +61,26 @@ body {
 
 .apply-shake {
   animation: shake 0.62s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+#clock {
+	margin: auto;
+  padding: 30px;
+  border-radius: 50%;
+  border: 2px solid blueviolet;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+}
+
+span {
+  width: 30px;
+  height: 30px;
+	display: block;
+	margin: auto;
+  text-align: center;
+	font-size: 2em;
 }
 
 @keyframes shake {
@@ -110,6 +130,19 @@ body {
     font-size: 20px;
     width: 150px;
   }
+  #clock {
+    padding: 20px;
+    border-radius: 50%;
+    
+  
+  }
+  
+  span {
+    width: 20px;
+    height: 20px;
+    font-size: 1.5em;
+  }
+
 }
 
 @media only screen and (max-width: 320px) {
@@ -130,7 +163,7 @@ body {
 
   .quiz-button {
     padding: 15px 10px;
-    margin: 20px;
+    margin: 40px;
     border-radius: 10px;
     background-color: blueviolet;
     color: whitesmoke;

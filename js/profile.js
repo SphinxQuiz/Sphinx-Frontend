@@ -10,6 +10,8 @@ const total = document.getElementById("totalQ")
 const main_div = document.getElementById("main-div");
 const animation = document.getElementById("loading-div");
 
+const profileB = document.getElementById("profile-background")
+
 
 
 function logout(){
@@ -47,6 +49,19 @@ function loadData(){
           ratioCalcul = result.goodAnswer / result.badAnswer
         }
 
+
+        val1 = randomIntFromInterval(10, 90)
+        val2 = randomIntFromInterval(10, 90)
+        val3 = randomIntFromInterval(10, 90)
+        val4 = randomIntFromInterval(10, 90)
+        val5 = randomIntFromInterval(10, 90)
+        val6 = randomIntFromInterval(10, 90)
+        val7 = randomIntFromInterval(10, 90)
+        val8 = randomIntFromInterval(10, 90)
+
+
+        profileB.style.borderRadius = `${val1}% ${val2}% ${val3}% ${val4}% / ${val5}% ${val6}% ${val7}% ${val8}%`
+
         profileTitle.innerText = result.username
         elo.innerText = "💯 Score : " + result.score
         
@@ -82,5 +97,9 @@ function showAnimation() {
   function hideAnimation() {
     main_div.style.display = "block";
     animation.style.display = "none";
+  }
+
+  function randomIntFromInterval(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min)
   }
   

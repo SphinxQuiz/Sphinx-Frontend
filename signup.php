@@ -88,9 +88,9 @@
     </div>
 
   </body>
-  <script src = "js/apiurl.js"></script>
-  <script src="js/alert.js"></script>
-  <script src="js/signup.js"></script>
+  <script type="text/javascript" src = "js/apiurl.js"></script>
+  <script type="text/javascript" src="js/alert.js"></script>
+  <script type="text/javascript" src="js/signup.js"></script>
 
 
 
