@@ -57,8 +57,6 @@ function hideAnimation() {
 function reset(){
 
 
-
-
   cloackTimeout = "null"
   document.getElementById("seconds").innerHTML = "15"
 
