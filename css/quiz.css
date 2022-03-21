@@ -1,5 +1,5 @@
 body {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 #main-div {
   display: none;
@@ -15,8 +15,12 @@ body {
 }
 
 #question {
-  margin-top: 7vh;
-  font-size: 40px;
+  margin-top: 4vh;
+  font-size: 2em;
+}
+
+#loading-div{
+  display: none;
 }
 
 .quiz-button {
@@ -48,6 +52,51 @@ body {
 }
 
 #next-question:hover {
+  transition: cubic-bezier(1, 0, 0, 1) 0.1s;
+  cursor: pointer;
+  transform: scale(1.07);
+}
+
+#rules{
+  width: 50%;
+}
+
+#rules h2{
+  margin: 3vh 0px;
+}
+
+#rules ul li{
+  list-style: none;
+}
+
+.rule-title{
+  font-size: 3em;
+  text-decoration: underline;
+  margin-bottom: 4vh;
+}
+
+#play-div{
+  margin: 5vh 70px 0px ;
+}
+
+
+
+#play-button{
+  margin-top: 4vh;
+  padding: 2vw 2vw;
+
+  border-radius: 10px;
+  background-color: blueviolet;
+  color: whitesmoke;
+  font-size: 25px;
+  width: 150px;
+  outline: inherit;
+  border: none;
+  position: flex;
+
+}
+
+#play-button:hover{
   transition: cubic-bezier(1, 0, 0, 1) 0.1s;
   cursor: pointer;
   transform: scale(1.07);
@@ -106,7 +155,37 @@ span {
   }
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 800px) {
+  #play-button{
+    width: 150px;
+    font-size: 1.5em;
+    padding: 3vw 3vw;
+
+  }
+
+  #rules{
+    width: 90%;
+  }
+  
+  #rules h2{
+    margin: 3vh 0px;
+    font-size: 1.2em;
+  }
+  
+  #rules ul li{
+    list-style: none;
+  }
+  
+  .rule-title{
+    font-size: 2.5em;
+    text-decoration: underline;
+    margin-bottom: 4vh;
+  }
+  
+  #play-div{
+    margin: 1vh 0px 0px ;
+  }
+
   #question {
     margin-top: 3vh;
     font-size: 25px;
@@ -146,10 +225,38 @@ span {
 }
 
 @media only screen and (max-width: 320px) {
+  #play-button{
+    width: 120px;
+    font-size: 1em;
+
+  }
+
+  #rules{
+    width: 80%;
+  }
+  
+  #rules h2{
+    margin: 3vh 0px;
+    font-size: 0.9em;
+  }
+  
+  #rules ul li{
+    list-style: none;
+  }
+  
+  .rule-title{
+    font-size: 1.3em;
+    text-decoration: underline;
+    margin-bottom: 4vh;
+  }
+  
+  #play-div{
+    margin: 3vh 0px 0px ;
+  }
 
   #question {
     margin-top: 3vh;
-    font-size:17px;
+    font-size:1em;
   }
 
   #difficulty-tag {

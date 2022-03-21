@@ -42,38 +42,75 @@
     <link rel="apple-touch-startup-image" href="./assets/icons/apple-splash-640-1136.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
     <link rel="apple-touch-startup-image" href="./assets/icons/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
 
-    <!-- Scripts -->
+    <!-- Scripts 
     <script src="./js/loadFile.js"></script> 
 
     <script type="text/javascript">
 
     var duplicate_google_translate_counter = 0;//this stops google adding button multiple times
 
-    let googleTranslate;
 
     function googleTranslateElementInit() {
       if (duplicate_google_translate_counter == 0) {
-        googleTranslate = new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
       }
       duplicate_google_translate_counter++;
     }
 
     </script>
-        <audio id="audio" src="./assets/bad.wav"></audio>
 
     
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+-->
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'ro',
+      includedLanguages: 'af,ar,de,en,es,fr,hu,it,ja,no,ro,ru,tr,zh-CN',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false}, 'google_translate_element');
+  }
+
+  function loadGoogleTranslate() {
+    var googleTranslateScript = document.createElement('script');
+    googleTranslateScript.type = 'text/javascript';
+    googleTranslateScript.async = true;
+    googleTranslateScript.src = 'http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild(googleTranslateScript);
+  }
+</script>
+
+<audio id="audio" src="./assets/bad.wav"></audio>
+
+
 
   </head>
 
 
     <?php include "./includes/navbar.php"?>
-    <body onload='reset()'>
 
-    <!--    <div class="centered">
-      <button onclick="start()">Play !</button>
+    <div class="centered" id="play-div">
+
+      <div id="rules">
+      <h1 class="rule-title">📖 The rules : </h1>
+
+        <h2>You will have 15 seconds to choose the right answer ✅ for the question asked</h2>
+        <h2>If you don't answer within the allotted time you loose points 📉</h2>
+
+        <h1 class="rule-title">The points : </h1>
+        <ul>
+          <li><h2>📕 Hard question --> 30 points</h2></li>
+          <li><h2>📘 Medium question --> 20 points</h2></li>
+          <li><h2>📗 Easy question --> 10 points</h2></li>
+
+        </ul>
+
+      </div>
+
+
+
+      <button id = "play-button" onclick="start()">Play !</button>
     </div>
-    -->
+    
 
       
     <div id = "main-div" class="centered">

@@ -13,11 +13,13 @@ const animation = document.getElementById("loading-div");
 const main_div = document.getElementById("main-div");
 const next_button = document.getElementById("next-question");
 const clock = document.getElementById("clock");
-
+const playButton = document.getElementById("play-button")
+const playDiv = document.getElementById("play-div")
 const goodAudio = new Audio("./assets/good.wav")
 const badAudio = new Audio("./assets/bad.wav")
 const clockAudio = new Audio("./assets/clock.wav")
 
+clockAudio.muted = true
 
 let questionType;
 let difficulty = "";
@@ -25,6 +27,8 @@ let id;
 
 let timeLeft;
 let clockTimeout;
+
+coolBorder(playButton)
 
 
 
@@ -54,8 +58,17 @@ function hideAnimation() {
   animation.style.display = "none";
 }
 
+function start(){
+  playDiv.style.display = "none"
+  playButton.style.display = "none"
+  reset()
+}
+
+
+
 function reset(){
 
+  loadGoogleTranslate()
 
   cloackTimeout = "null"
   document.getElementById("seconds").innerHTML = "15"
@@ -87,10 +100,13 @@ async function displayData() {
     xhr.open("GET", url, false)
 
 
-    clockAudio.play()
 
     xhr.setRequestHeader("Authorization", localStorage.getItem("token"))
     xhr.addEventListener("load", () => {
+
+      clockAudio.muted = false
+      clockAudio.play()
+
 
 
       if (xhr.status != 200) { // On check si on a pas recu d'erreur
@@ -320,3 +336,16 @@ function playClockAudio(){
   clockAudio.play()
 }
 
+function coolBorder(element){
+  val1 = randomIntFromInterval(40, 60)
+  val2 = randomIntFromInterval(40, 60)
+  val3 = randomIntFromInterval(40, 60)
+  val4 = randomIntFromInterval(40, 60)
+  val5 = randomIntFromInterval(40, 60)
+  val6 = randomIntFromInterval(40, 60)
+  val7 = randomIntFromInterval(40, 60)
+  val8 = randomIntFromInterval(40, 60)
+
+
+  element.style.borderRadius = `${val1}% ${val2}% ${val3}% ${val4}% / ${val5}% ${val6}% ${val7}% ${val8}%` 
+}
