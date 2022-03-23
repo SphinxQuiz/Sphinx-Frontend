@@ -4,7 +4,6 @@ body{
 
 .background-index {
   background-size: cover;
-  overflow: hidden;
   background-color: blueviolet;
   background-image: linear-gradient(
     43deg,
