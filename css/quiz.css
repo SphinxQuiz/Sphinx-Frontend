@@ -1,4 +1,5 @@
 
+
 #main-div {
   display: none;
 }
@@ -74,7 +75,7 @@
 }
 
 #play-div{
-  margin: 5vh 70px 0px ;
+  margin: 5vh 70px 20px ;
 }
 
 
@@ -154,6 +155,11 @@ span {
 }
 
 @media only screen and (max-width: 800px) {
+
+  .logo{
+    display: none;
+  }
+
   #play-button{
     width: 150px;
     font-size: 1.5em;
@@ -181,6 +187,7 @@ span {
   }
   
   #play-div{
+    padding-bottom: 10vh;
     margin: 1vh 0px 0px ;
   }
 
@@ -226,7 +233,6 @@ span {
   #play-button{
     width: 120px;
     font-size: 1em;
-
   }
 
   #rules{
@@ -268,7 +274,7 @@ span {
 
   .quiz-button {
     padding: 15px 10px;
-    margin: 40px;
+    margin: 20px;
     border-radius: 10px;
     background-color: blueviolet;
     color: whitesmoke;
