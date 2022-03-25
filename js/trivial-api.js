@@ -31,12 +31,18 @@ let id;
 
 let timeLeft;
 let clockTimeout;
+let timeout;
 
 coolBorder(playButton)
 
 let r;
 
+const xhr = new XMLHttpRequest()
+const xmlAnswer = new XMLHttpRequest()
 
+let whichButton;
+let oldText;
+let timeouted;
 let nb = 1;
 
 
@@ -121,58 +127,57 @@ async function displayData() {
   const url = apiUrl + "/api/question/getOne";
 
     showAnimation();
-    let xhr = new XMLHttpRequest()
 
     xhr.open("GET", url, false)
 
-
-
     xhr.setRequestHeader("Authorization", localStorage.getItem("token"))
-    xhr.addEventListener("load", () => {
-
-      clockAudio.muted = false
-      clockAudio.play()
-
-
-
-      if (xhr.status != 200) { // On check si on a pas recu d'erreur
-        alert(`Error ${xhr.status}: ${xhr.statusText}`); 
-        window.location.replace("../index.php")
-      } else { 
-        setTimeout(countdown, 1000);
-
-        r = JSON.parse(xhr.responseText)
-
-        id = r.id
-
-        categorie_label.innerText = "Categorie - " + r.category;
-
-        if(r.type == "multiple"){
-          if(r.category == "Entertainment: Video Games" || r.category == "Entertainment: Musicals & Theatres" || r.category == "Entertainment: Music" || r.category == "Entertainment: Television"  || r.category == "Entertainment: Cartoon & Animations" || r.category == "Entertainment: Japanese Anime & Manga" ){
-            buttonNoTranslate()
-          }
-        }
-          timeLeft = 20
-        
-
-
-
-        difficulty = r.difficulty
-        difficulty_tag_label.innerText = "Difficulty: " + difficulty;
-
-        let questionText = htmlEntities(r.question);
-        question_label.innerText = questionText;
-
-        questionList = r.tabSend;
-        buttonFill(r.type);
-        hideAnimation();
-
-        }
-      });
+    
       xhr.send()
 
 
 }
+
+xhr.addEventListener("load", () => {
+
+  clockAudio.muted = false
+  clockAudio.play()
+
+
+
+  if (xhr.status != 200) { // On check si on a pas recu d'erreur
+    alert(`Error ${xhr.status}: ${xhr.statusText}`); 
+    window.location.replace("../index.php")
+  } else { 
+    setTimeout(countdown, 1000);
+
+    r = JSON.parse(xhr.responseText)
+
+    id = r.id
+
+    categorie_label.innerText = "Categorie - " + r.category;
+
+    if(r.type == "multiple"){
+      if(r.category == "Entertainment: Video Games" || r.category == "Entertainment: Musicals & Theatres" || r.category == "Entertainment: Music" || r.category == "Entertainment: Television"  || r.category == "Entertainment: Cartoon & Animations" || r.category == "Entertainment: Japanese Anime & Manga" ){
+        buttonNoTranslate()
+      }
+    }
+      timeLeft = 20
+    
+
+
+
+    difficulty = r.difficulty
+    difficulty_tag_label.innerText = "Difficulty: " + difficulty;
+
+    let questionText = htmlEntities(r.question);
+    question_label.innerText = questionText;
+
+    questionList = r.tabSend;
+    buttonFill(r.type);
+    hideAnimation();
+
+    }
+  });
 
 function buttonNoTranslate(){
   if(questionType == "multiple"){
@@ -237,53 +242,26 @@ function disableButtons() {
   });
 }
 
-async function reveal(whichButton, timeouted = false) {
+async function reveal(clickedButton, isTimeOut = false) {
+
+  whichButton = clickedButton;
+  timeouted
 
   let urlAnswer = apiUrl + "/api/question/getFromId/" + id
   clockAudio.pause()
   clockAudio.currentTime = 0
 
 
-  let oldText = whichButton.innerText
+   oldText = whichButton.innerText
 
   printDots(whichButton)
-  let timeout = setInterval(() => printDots(whichButton), 800) 
+  timeout = setInterval(() => printDots(whichButton), 800) 
 
-  let xmlAnswer = new XMLHttpRequest()
 
   xmlAnswer.open("POST", urlAnswer, true)
   xmlAnswer.setRequestHeader("Authorization", localStorage.getItem("token"))
 
-   xmlAnswer.addEventListener("load", () => {
-     clearInterval(timeout)
-     whichButton.innerText = oldText
-
-    if (xmlAnswer.status != 201) { // On check si on a pas recu d'erreur
-      alert(`Error ${xmlAnswer.status}: ${xmlAnswer.statusText}`); 
-    } else { 
-      let reponse = JSON.parse(xmlAnswer.responseText)
-      let a = reponse.correct_answer
-
-
-      if(timeouted){
-        badAudio.play()
-      }
-    
-      const value = whichButton.value;
-
-
-      if (a === value) {
-        goodAudio.play()
-        whichButton.style.background = "green";
-        displayNextButton();
-      } else {
-        badAudio.play()
-        whichButton.classList.add("apply-shake");
-        whichButton.style.background = "red";
-        revealGreen(whichButton, a);
-      }
-    }
-  })
+   
   xmlAnswer.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xmlAnswer.send(JSON.stringify({
       "difficulty": difficulty,
@@ -295,6 +273,37 @@ async function reveal(whichButton, timeouted = false) {
   
   displayNextButton();
 }
+
+xmlAnswer.addEventListener("load", () => {
+  clearInterval(timeout)
+  whichButton.innerText = oldText
+
+ if (xmlAnswer.status != 201) { // On check si on a pas recu d'erreur
+   alert(`Error ${xmlAnswer.status}: ${xmlAnswer.statusText}`); 
+ } else { 
+   let reponse = JSON.parse(xmlAnswer.responseText)
+   let a = reponse.correct_answer
+
+
+   if(timeouted){
+     badAudio.play()
+   }
+ 
+   const value = whichButton.value;
+
+
+   if (a === value) {
+     goodAudio.play()
+     whichButton.style.background = "green";
+     displayNextButton();
+   } else {
+     badAudio.play()
+     whichButton.classList.add("apply-shake");
+     whichButton.style.background = "red";
+     revealGreen(whichButton, a);
+   }
+ }
+})
 
 function revealGreen(whichButton, a){
   if (questionType === "boolean") {
@@ -318,10 +327,6 @@ function displayNextButton() {
   categorie_label.style.display = "none";
   next_button.style.display = "block";
 }
-
-
-
-
 
 
 function displayQuestionIndex() {
