@@ -210,6 +210,8 @@ function buttonFill(type) {
 
 function htmlEntities(str) {
   return String(str)
+
+    .replace(/&Iacute/g, "í")
     .replace(/&deg/g, "°")
     .replace(/&Delta/g, "Δ")
     .replace(/&aring/g, "å")
