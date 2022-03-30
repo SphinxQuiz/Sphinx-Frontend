@@ -19,7 +19,7 @@
             </li>
           </a>
 
-          <a href="quiz.php">
+          <a href="rules.php">
             <li>
               <i class="fa-solid fa-brain icons-white"></i>
             </li>
@@ -36,7 +36,7 @@
               <i class="fa-solid fa-medal icons-white"></i>
             </li>
           </a>
-          <a href="quiz.php">
+          <a href="rules.php">
             <li>
               <i class="fa-solid fa-brain icons-white"></i>
             </li>

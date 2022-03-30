@@ -95,36 +95,39 @@
 
 
     <?php include "./includes/navbar.php"?>
+
+    <div class="centered" id="play-div">
+
+      <div id="rules">
+      <h1 class="rule-title">📖 The rules : </h1>
+
+        <h2>You will have 15 seconds to choose the right answer ✅ for the question asked</h2>
+        <h2>If you don't answer within the allotted time you loose points 📉</h2>
+
+        <h1 class="rule-title">🎯 Points : </h1>
+        <ul>
+          <li><h2>📕 Hard question : <strong>30 points</strong></h2></li>
+          <li><h2>📘 Medium question : <strong>20 points</strong></h2></li>
+          <li><h2>📗 Easy question : <strong>10 points</strong></h2></li>
+
+        </ul>
+
+      </div>
+
+
+
+      <a id = "play-button" href="./quiz.php">Play !</a>
+    </div>
     
 
       
-    <div id = "main-div" class="centered" >
-    <h2 id="question" class="noselect"></h2>
-      <h3 id="categorie"></h3>
-      <h4 id="difficulty-tag"></h4>
-      <div class="centered">
-        <button id="next-question" onclick="reset()">Next question</button>
-      </div>
-      <div class="centered button-div">
-        <div id="ligne1" class="ligne"><button class="quiz-button hoverScale-up noselect">Reponse A</button><button class="quiz-button hoverScale-up noselect">Reponse B</button></div>
-        <div class="ligne">
-          <div id="clock">
-            <span class="notranslate" id="seconds">20</span>
-          </div>
-        </div>
-        <div id="ligne2" class="ligne"><button id="boolean-btn-1" class="quiz-button hoverScale-up noselect">Reponse A</button><button id="boolean-btn-2" class="quiz-button hoverScale-up noselect">Reponse B</button></div>
-      </div>
-    </div>
-    <div id ="loading-div" class="gif-div">
-        <img id = "loading-gif" src="assets/loading-gif.gif" alt="loading gif">
-    </div>
-
     
 
   </body>
   <script type="text/javascript" src = "js/auth.js"></script>
   <script type="text/javascript" src = "js/apiurl.js"></script>
-  <script type="text/javascript" src="js/trivial-api.js"></script>
+  <script type="text/javascript" src = "js/rules.js"></script>
+
 
 
 </html>
