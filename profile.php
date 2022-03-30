@@ -82,7 +82,9 @@
             
             
         </div>
+            <img src="assets/muted.png" alt="muteButton" id="mute">
         <div id="google_translate_element"></div>
+
 
         <div id ="loading-div" class="gif-div">
             <img id = "loading-gif" src="assets/loading-gif.gif" alt="loading gif">

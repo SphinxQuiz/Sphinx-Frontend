@@ -22,7 +22,13 @@ const goodAudio = new Audio("./assets/good.wav")
 const badAudio = new Audio("./assets/bad.wav")
 const clockAudio = new Audio("./assets/clock.wav")
 
-clockAudio.muted = true
+
+if(localStorage.getItem("sound") == "false"){
+  goodAudio.muted = true
+  badAudio.muted = true
+  clockAudio.muted = true
+
+}
 
 let questionType;
 let difficulty = "";
@@ -124,11 +130,11 @@ function reset(){
 // Retrieve and display data on the page
 async function displayData() {
 
-  if(nbTimesDisplayData == 2){
+  if(nbTimesDisplayData == 10){
     window.location.reload()
     console.log("reload")
   }
-  
+
   nbTimesDisplayData += 1;
   console.log(nbTimesDisplayData)
 
@@ -148,7 +154,6 @@ async function displayData() {
 
 xhr.addEventListener("load", () => {
 
-  clockAudio.muted = false
   clockAudio.play()
 
 
