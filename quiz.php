@@ -68,7 +68,7 @@
   function googleTranslateElementInit() {
 
       googleTranslateEl = new google.translate.TranslateElement({pageLanguage: 'en',
-      includedLanguages: 'af,ar,de,en,es,fr,hu,it,ja,no,ro,ru,tr,zh-CN',
+      includedLanguages: 'fr',
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
       autoDisplay: false}, 'google_translate_element');
     
@@ -95,33 +95,10 @@
 
 
     <?php include "./includes/navbar.php"?>
-
-    <div class="centered" id="play-div">
-
-      <div id="rules">
-      <h1 class="rule-title">📖 The rules : </h1>
-
-        <h2>You will have 15 seconds to choose the right answer ✅ for the question asked</h2>
-        <h2>If you don't answer within the allotted time you loose points 📉</h2>
-
-        <h1 class="rule-title">🎯 Points : </h1>
-        <ul>
-          <li><h2>📕 Hard question : <strong>30 points</strong></h2></li>
-          <li><h2>📘 Medium question : <strong>20 points</strong></h2></li>
-          <li><h2>📗 Easy question : <strong>10 points</strong></h2></li>
-
-        </ul>
-
-      </div>
-
-
-
-      <button id = "play-button" onclick="start()">Play !</button>
-    </div>
     
 
       
-    <div id = "main-div" class="centered">
+    <div id = "main-div" class="centered" >
     <h2 id="question" class="noselect"></h2>
       <h3 id="categorie"></h3>
       <h4 id="difficulty-tag"></h4>

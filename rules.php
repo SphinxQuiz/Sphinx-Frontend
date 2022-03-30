@@ -1,14 +1,15 @@
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Sphinx</title>
+    <link rel="stylesheet" href="css/quiz.css" />
+
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/profile.css" />
-    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/navbar.css"/>
 
     <link rel="manifest" href="manifest.json"/> 
-
 
 
     <!-- icons --> 
@@ -42,62 +43,91 @@
     <link rel="apple-touch-startup-image" href="./assets/icons/apple-splash-640-1136.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
     <link rel="apple-touch-startup-image" href="./assets/icons/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
 
-    <!-- Custom google dropdown -->
+    <!-- Scripts 
+    <script src="./js/loadFile.js"></script> 
+
     <script type="text/javascript">
-    
 
     var duplicate_google_translate_counter = 0;//this stops google adding button multiple times
 
+
     function googleTranslateElementInit() {
-    if (duplicate_google_translate_counter == 0) {
+      if (duplicate_google_translate_counter == 0) {
         new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-    }
-    duplicate_google_translate_counter++;
+      }
+      duplicate_google_translate_counter++;
     }
 
     </script>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-   
-    <title>Profile</title>
-</head>
-<body onload="loadData()">
-    <?php include "includes/navbar.php"?>
-    <div id="main-div" class="centered">
-        <div class="container" id = "profile-background">
-            <h1 class="notranslate" id="profileTitle">???</h1>
-            <div class="ligne" id ="elo-ligne">
-                <h2 id="elo" class="label notranslate">???</h2>
-                <h2 id="ratio" class="label notranslate">???</h2>
-            </div>
-            <div class="ligne" >
-                <h2 id="maxStreak" class="label">???</h2>
-                <h2 id="currentStreak" class="label">???</h2>
-            </div>
-            <div class="ligne" id ="bottomLine">
-                <h2 id="totalQ" class="label">???</h2>
-            </div>
 
     
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+-->
+<script type="text/javascript">
 
-            
-            
-        </div>
-            <img src="assets/muted.png" alt="muteButton" id="mute">
-        <div id="google_translate_element"></div>
+  function googleTranslateElementInit() {
+
+      googleTranslateEl = new google.translate.TranslateElement({pageLanguage: 'en',
+      includedLanguages: 'af,ar,de,en,es,fr,hu,it,ja,no,ro,ru,tr,zh-CN',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false}, 'google_translate_element');
+    
 
 
-        <div id ="loading-div" class="gif-div">
-            <img id = "loading-gif" src="assets/loading-gif.gif" alt="loading gif">
-        </div>
-        <button class="logout-button" onclick="logout()">Logout</button>
+      var removePopup = document.getElementById('goog-gt-tt');
+      removePopup.parentNode.removeChild(removePopup);
+  }
 
+  function loadGoogleTranslate() {
+    var googleTranslateScript = document.createElement('script');
+    googleTranslateScript.type = 'text/javascript';
+    googleTranslateScript.async = true;
+    googleTranslateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild(googleTranslateScript);
+  }
+</script>
+
+<audio id="audio" src="./assets/bad.wav"></audio>
+
+
+
+  </head>
+
+
+    <?php include "./includes/navbar.php"?>
+
+    <div class="centered" id="play-div">
+
+      <div id="rules">
+      <h1 class="rule-title">📖 The rules : </h1>
+
+        <h2>You will have 15 seconds to choose the right answer ✅ for the question asked</h2>
+        <h2>If you don't answer within the allotted time you loose points 📉</h2>
+
+        <h1 class="rule-title">🎯 Points : </h1>
+        <ul>
+          <li><h2>📕 Hard question : <strong>30 points</strong></h2></li>
+          <li><h2>📘 Medium question : <strong>20 points</strong></h2></li>
+          <li><h2>📗 Easy question : <strong>10 points</strong></h2></li>
+
+        </ul>
+
+      </div>
+
+
+
+      <a id = "play-button" href="./quiz.php">Play !</a>
     </div>
     
-</body>
 
-<script type="text/javascript" src = "js/apiurl.js"></script>
-<script type="text/javascript" src = "js/auth.js"></script>
-<script type="text/javascript" src = "js/profile.js"></script>
+      
+    
+
+  </body>
+  <script type="text/javascript" src = "js/auth.js"></script>
+  <script type="text/javascript" src = "js/apiurl.js"></script>
+  <script type="text/javascript" src = "js/rules.js"></script>
+
 
 
 </html>

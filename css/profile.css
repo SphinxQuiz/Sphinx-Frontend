@@ -3,6 +3,17 @@ body {
 }
 
 
+
+#mute{
+  margin-top: 5px;
+  max-width: 4vw;
+  max-height: auto;
+}
+
+#mute:hover{
+  cursor: pointer;
+}
+
 #profileTitle {
   margin: 10px 0px 0px 0px;
   font-size: 3em;
@@ -22,8 +33,7 @@ body {
 
 #profile-background{
   background-color: rgba(76, 51, 187, 0.5);
-  margin: 20px 20%;
-  padding-bottom: 20px;
+  margin: 20px 20% 0px;
 }
 
 .ligne{
@@ -31,8 +41,13 @@ body {
   margin: 40px;
 }
 
+#bottomLine{
+  margin-bottom: 0px;
+}
+
 .logout-button{
     padding: 10px 0px;
+    margin-bottom: 20px;
     border-radius: 10px;
     background-color: rgba(138, 43, 226, 0.9) ;
     color: rgba(255, 255, 255, 0.8);
@@ -50,16 +65,19 @@ body {
 
 @media only screen and (max-width: 800px) {
 
+  #mute{
+    max-width: 40px;
+  }
+
   .logo{
     display: none;
   }
   
 
   #profil-background{
-    margin: 10px 2%;
-
-
+    margin: 10px 2% 0px;
   }
+
   .logout-button {
     margin-bottom: 30px;
   }
@@ -79,12 +97,13 @@ body {
 @media only screen and (max-width: 320px) {
 
   #profile-background{
-    margin: 0px 5% 20px ;
+    margin: 0px 5% 0px ;
   }
 
   #profileTitle {
     margin-top: 20px;
     font-size: 3em;
+    
   }
 
   .logout-button {
@@ -108,5 +127,10 @@ body {
   #bottom-line{
     margin-bottom: 0px;
   }
+
+  #mute{
+    min-width: 40px;
+  }
+
 
 }

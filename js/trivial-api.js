@@ -13,7 +13,6 @@ const animation = document.getElementById("loading-div");
 const main_div = document.getElementById("main-div");
 const next_button = document.getElementById("next-question");
 const clock = document.getElementById("clock");
-const playButton = document.getElementById("play-button")
 const playDiv = document.getElementById("play-div")
 
 
@@ -23,7 +22,13 @@ const goodAudio = new Audio("./assets/good.wav")
 const badAudio = new Audio("./assets/bad.wav")
 const clockAudio = new Audio("./assets/clock.wav")
 
-clockAudio.muted = true
+
+if(localStorage.getItem("sound") == "false"){
+  goodAudio.muted = true
+  badAudio.muted = true
+  clockAudio.muted = true
+
+}
 
 let questionType;
 let difficulty = "";
@@ -33,7 +38,8 @@ let timeLeft;
 let clockTimeout;
 let timeout;
 
-coolBorder(playButton)
+let nbTimesDisplayData = 0;
+
 
 let r;
 
@@ -69,7 +75,6 @@ function hideAnimation() {
 
 function start(){
   playDiv.style.display = "none"
-  playButton.style.display = "none"
   reset()
 }
 
@@ -120,8 +125,18 @@ function reset(){
 
 }
 
+
+
 // Retrieve and display data on the page
 async function displayData() {
+
+  if(nbTimesDisplayData == 10){
+    window.location.reload()
+    console.log("reload")
+  }
+
+  nbTimesDisplayData += 1;
+  console.log(nbTimesDisplayData)
 
   
   const url = apiUrl + "/api/question/getOne";
@@ -139,7 +154,6 @@ async function displayData() {
 
 xhr.addEventListener("load", () => {
 
-  clockAudio.muted = false
   clockAudio.play()
 
 
@@ -386,6 +400,7 @@ function coolBorder(element){
   val7 = randomIntFromInterval(40, 60)
   val8 = randomIntFromInterval(40, 60)
 
-
   element.style.borderRadius = `${val1}% ${val2}% ${val3}% ${val4}% / ${val5}% ${val6}% ${val7}% ${val8}%` 
 }
+
+displayData()

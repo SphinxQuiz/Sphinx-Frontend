@@ -1,16 +1,36 @@
-
-
 const profileTitle = document.getElementById("profileTitle")
 const elo = document.getElementById("elo")
 const ratio = document.getElementById("ratio")
 const maxStreak = document.getElementById("maxStreak")
 const currentStreak = document.getElementById("currentStreak")
 const total = document.getElementById("totalQ")
-
+const imgMute = document.getElementById("mute")
 const main_div = document.getElementById("main-div");
 const animation = document.getElementById("loading-div");
 
 const profileB = document.getElementById("profile-background")
+
+if(localStorage.getItem("sound") == "false"){
+  imgMute.src = "../assets/muted.png"
+}
+else{
+  imgMute.src = "../assets/unmuted.png"
+}
+
+imgMute.addEventListener("click", ()=> {
+  console.log(localStorage.getItem("sound"))
+  if(localStorage.getItem("sound") == "false"){
+    console.log("test")
+    localStorage.setItem("sound", true)
+    imgMute.src = "../assets/unmuted.png"
+
+  }
+  else if (localStorage.getItem("sound") == "true"){
+    localStorage.setItem("sound", false)
+    imgMute.src = "../assets/muted.png"
+
+  }
+})
 
 
 
@@ -51,7 +71,7 @@ function loadData(){
 
         coolBorder(profileB)
         profileB.style.backgroundColor = `rgba(${randomIntFromInterval(50, 225)},${randomIntFromInterval(50, 225)},${randomIntFromInterval(50, 225)}, 0.5)`
-        
+        imgMute.style.fill = `rgba(${randomIntFromInterval(50, 225)},${randomIntFromInterval(50, 225)},${randomIntFromInterval(50, 225)}, 0.5)`
 
         profileTitle.innerText = result.username
         elo.innerText = "💯 Score : " + result.score

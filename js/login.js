@@ -9,7 +9,7 @@ const loginButton = document.getElementById("submitButton")
 const urlLogin = apiUrl + "/api/auth/login";
 let passwordShow = false
 
-
+let oldText = "Login";
 
 let nb = 1;
 
@@ -44,7 +44,6 @@ function login(){
 
     }
     else if (username.value != null && password != null){
-        let oldText = submitButton.innerText
 
         printDots(submitButton)
         let timeout = setInterval(() => printDots(submitButton), 800) 
@@ -54,6 +53,7 @@ function login(){
         xhr.addEventListener("load", () => {
             clearInterval(timeout)
             if(xhr.status != 200){
+                loginButton.innerText = oldText
                 let message = JSON.parse(xhr.responseText)
                 showMessage(message.error);
             }
@@ -61,6 +61,7 @@ function login(){
                 let message = JSON.parse(xhr.responseText)
                 localStorage.setItem("token", message.token)
                 localStorage.setItem("username", message.username)
+                localStorage.setItem("sound", true)
                 window.location.replace("./profile.php")
             }
         })
