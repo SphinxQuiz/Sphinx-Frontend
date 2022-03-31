@@ -1,10 +1,11 @@
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <title>Sphinx</title>
     <link rel="stylesheet" href="css/quiz.css" />
+
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/navbar.css"/>
 
@@ -42,41 +43,62 @@
     <link rel="apple-touch-startup-image" href="./assets/icons/apple-splash-640-1136.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
     <link rel="apple-touch-startup-image" href="./assets/icons/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
 
-    <!-- Scripts -->
+    <!-- Scripts 
     <script src="./js/loadFile.js"></script> 
 
     <script type="text/javascript">
 
     var duplicate_google_translate_counter = 0;//this stops google adding button multiple times
 
-    let googleTranslate;
 
     function googleTranslateElementInit() {
       if (duplicate_google_translate_counter == 0) {
-        googleTranslate = new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
       }
       duplicate_google_translate_counter++;
     }
 
     </script>
-        <audio id="audio" src="./assets/bad.wav"></audio>
 
     
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+-->
+<script type="text/javascript">
+
+  function googleTranslateElementInit() {
+
+      googleTranslateEl = new google.translate.TranslateElement({pageLanguage: 'en',
+      includedLanguages: 'fr',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false}, 'google_translate_element');
+    
+
+
+      var removePopup = document.getElementById('goog-gt-tt');
+      removePopup.parentNode.removeChild(removePopup);
+  }
+
+  function loadGoogleTranslate() {
+    var googleTranslateScript = document.createElement('script');
+    googleTranslateScript.type = 'text/javascript';
+    googleTranslateScript.async = true;
+    googleTranslateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild(googleTranslateScript);
+  }
+</script>
+
+<audio id="audio" src="./assets/bad.wav"></audio>
+
+
 
   </head>
 
 
     <?php include "./includes/navbar.php"?>
-    <body onload='reset()'>
-
-    <!--    <div class="centered">
-      <button onclick="start()">Play !</button>
-    </div>
-    -->
+    
 
       
-    <div id = "main-div" class="centered">
+    <div id = "main-div" class="centered" >
     <h2 id="question" class="noselect"></h2>
       <h3 id="categorie"></h3>
       <h4 id="difficulty-tag"></h4>
@@ -87,10 +109,10 @@
         <div id="ligne1" class="ligne"><button class="quiz-button hoverScale-up noselect">Reponse A</button><button class="quiz-button hoverScale-up noselect">Reponse B</button></div>
         <div class="ligne">
           <div id="clock">
-            <span class="notranslate" id="seconds">15</span>
+            <span class="notranslate" id="seconds">20</span>
           </div>
         </div>
-        <div id="ligne2" class="ligne"><button class="quiz-button hoverScale-up noselect">Reponse A</button><button class="quiz-button hoverScale-up noselect">Reponse B</button></div>
+        <div id="ligne2" class="ligne"><button id="boolean-btn-1" class="quiz-button hoverScale-up noselect">Reponse A</button><button id="boolean-btn-2" class="quiz-button hoverScale-up noselect">Reponse B</button></div>
       </div>
     </div>
     <div id ="loading-div" class="gif-div">

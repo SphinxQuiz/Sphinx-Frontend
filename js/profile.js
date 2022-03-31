@@ -1,16 +1,36 @@
-
-
 const profileTitle = document.getElementById("profileTitle")
 const elo = document.getElementById("elo")
 const ratio = document.getElementById("ratio")
 const maxStreak = document.getElementById("maxStreak")
 const currentStreak = document.getElementById("currentStreak")
 const total = document.getElementById("totalQ")
-
+const imgMute = document.getElementById("mute")
 const main_div = document.getElementById("main-div");
 const animation = document.getElementById("loading-div");
 
 const profileB = document.getElementById("profile-background")
+
+if(localStorage.getItem("sound") == "false"){
+  imgMute.src = "../assets/muted.png"
+}
+else{
+  imgMute.src = "../assets/unmuted.png"
+}
+
+imgMute.addEventListener("click", ()=> {
+  console.log(localStorage.getItem("sound"))
+  if(localStorage.getItem("sound") == "false"){
+    console.log("test")
+    localStorage.setItem("sound", true)
+    imgMute.src = "../assets/unmuted.png"
+
+  }
+  else if (localStorage.getItem("sound") == "true"){
+    localStorage.setItem("sound", false)
+    imgMute.src = "../assets/muted.png"
+
+  }
+})
 
 
 
@@ -49,18 +69,9 @@ function loadData(){
           ratioCalcul = result.goodAnswer / result.badAnswer
         }
 
-
-        val1 = randomIntFromInterval(10, 90)
-        val2 = randomIntFromInterval(10, 90)
-        val3 = randomIntFromInterval(10, 90)
-        val4 = randomIntFromInterval(10, 90)
-        val5 = randomIntFromInterval(10, 90)
-        val6 = randomIntFromInterval(10, 90)
-        val7 = randomIntFromInterval(10, 90)
-        val8 = randomIntFromInterval(10, 90)
-
-
-        profileB.style.borderRadius = `${val1}% ${val2}% ${val3}% ${val4}% / ${val5}% ${val6}% ${val7}% ${val8}%`
+        coolBorder(profileB)
+        profileB.style.backgroundColor = `rgba(${randomIntFromInterval(50, 225)},${randomIntFromInterval(50, 225)},${randomIntFromInterval(50, 225)}, 0.5)`
+        imgMute.style.fill = `rgba(${randomIntFromInterval(50, 225)},${randomIntFromInterval(50, 225)},${randomIntFromInterval(50, 225)}, 0.5)`
 
         profileTitle.innerText = result.username
         elo.innerText = "💯 Score : " + result.score
@@ -103,3 +114,16 @@ function showAnimation() {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
   
+  function coolBorder(element){
+        val1 = randomIntFromInterval(20, 80)
+        val2 = randomIntFromInterval(20, 80)
+        val3 = randomIntFromInterval(20, 80)
+        val4 = randomIntFromInterval(20, 80)
+        val5 = randomIntFromInterval(20, 80)
+        val6 = randomIntFromInterval(20, 80)
+        val7 = randomIntFromInterval(20, 80)
+        val8 = randomIntFromInterval(20, 80)
+
+
+        element.style.borderRadius = `${val1}% ${val2}% ${val3}% ${val4}% / ${val5}% ${val6}% ${val7}% ${val8}%` 
+  }

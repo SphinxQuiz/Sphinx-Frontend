@@ -13,11 +13,22 @@ const animation = document.getElementById("loading-div");
 const main_div = document.getElementById("main-div");
 const next_button = document.getElementById("next-question");
 const clock = document.getElementById("clock");
+const playDiv = document.getElementById("play-div")
+
+
+
 
 const goodAudio = new Audio("./assets/good.wav")
 const badAudio = new Audio("./assets/bad.wav")
 const clockAudio = new Audio("./assets/clock.wav")
 
+
+if(localStorage.getItem("sound") == "false"){
+  goodAudio.muted = true
+  badAudio.muted = true
+  clockAudio.muted = true
+
+}
 
 let questionType;
 let difficulty = "";
@@ -25,15 +36,23 @@ let id;
 
 let timeLeft;
 let clockTimeout;
+let timeout;
+
+let nbTimesDisplayData = 0;
 
 
+let r;
 
+const xhr = new XMLHttpRequest()
+const xmlAnswer = new XMLHttpRequest()
 
+let whichButton;
+let oldText;
+let timeouted;
 let nb = 1;
 
 
 function printDots(element) {
-    console.log(element)
     element.innerText = ""
     for(let i = 0; i<nb; i ++){
         element.innerText += "."
@@ -44,7 +63,7 @@ function printDots(element) {
 
 // Show the loading animation
 function showAnimation() {
-  main_div.style.display = "none";
+  main_div.style.display = "none"
   animation.style.display = "block";
 }
 
@@ -54,89 +73,133 @@ function hideAnimation() {
   animation.style.display = "none";
 }
 
+function start(){
+  playDiv.style.display = "none"
+  reset()
+}
+
+let googleElements;
+let googleElements1;
+let googleElements2;
+
+
 function reset(){
 
-  googleTranslateElementInit()
+  googleElements = Array.from(document.querySelectorAll(".goog-te-menu-frame"))
+  googleElements1 = Array.from(document.querySelectorAll(".skiptranslate"))
+  googleElements2 = Array.from(document.querySelectorAll(".goog-te-spinner-pos"))
 
+  
+
+  googleElements.forEach(e => {
+    e.remove()
+  })
+
+  googleElements1.forEach(e => {
+    e.remove()
+  })  
+  googleElements2.forEach(e => {
+    e.remove()
+  })
+
+  loadGoogleTranslate()
 
   cloackTimeout = "null"
-  document.getElementById("seconds").innerHTML = "15"
+  document.getElementById("seconds").innerHTML = "20"
 
   document.querySelectorAll("button").forEach((button) => {
     button.disabled = false;
     button.classList.add("hoverScale-up");
+    button.classList.remove("notranslate")
     button.style.backgroundColor = "blueviolet"
   })
+
+
   next_button.style.backgroundColor = "grey"
   next_button.style.display ="none"
   categorie_label.style.display ="block"
   clock.style.border = "2px solid blueviolet"
+  ligne1.style.display = "flex";
 
   displayData()
 
 }
 
+
+
 // Retrieve and display data on the page
 async function displayData() {
+
+  if(nbTimesDisplayData == 10){
+    window.location.reload()
+    console.log("reload")
+  }
+
+  nbTimesDisplayData += 1;
+  console.log(nbTimesDisplayData)
 
   
   const url = apiUrl + "/api/question/getOne";
 
     showAnimation();
-    let xhr = new XMLHttpRequest()
 
     xhr.open("GET", url, false)
 
-
-    clockAudio.play()
-
     xhr.setRequestHeader("Authorization", localStorage.getItem("token"))
-    xhr.addEventListener("load", () => {
-
-
-      if (xhr.status != 200) { // On check si on a pas recu d'erreur
-        alert(`Error ${xhr.status}: ${xhr.statusText}`); 
-        window.location.replace("../index.php")
-      } else { 
-        setTimeout(countdown, 1000);
-
-
-        const r = JSON.parse(xhr.responseText)
-
-
-        id = r.id
-
-        categorie_label.innerText = "Categorie - " + r.category;
-
-        if(r.category == "Entertainment: Video Games" || r.category == "Entertainment: Musicals & Theatres" || r.category == "Entertainment: Music" || r.category == "Entertainment: Television"  || r.category == "Entertainment: Cartoon & Animations"){
-          buttonNoTranslate()
-        }
-          timeLeft = 15
-        
-
-
-
-        difficulty = r.difficulty
-        difficulty_tag_label.innerText = "Difficulty: " + difficulty;
-
-        let questionText = htmlEntities(r.question);
-        question_label.innerText = questionText;
-
-        questionList = r.tabSend;
-        buttonFill(r.type);
-        hideAnimation();
-
-        }
-      });
+    
       xhr.send()
 
 
 }
 
+xhr.addEventListener("load", () => {
+
+  clockAudio.play()
+
+
+
+  if (xhr.status != 200) { // On check si on a pas recu d'erreur
+    alert(`Error ${xhr.status}: ${xhr.statusText}`); 
+    window.location.replace("../index.php")
+  } else { 
+    setTimeout(countdown, 1000);
+
+    r = JSON.parse(xhr.responseText)
+
+    id = r.id
+
+    categorie_label.innerText = "Categorie - " + r.category;
+
+    if(r.type == "multiple"){
+      if(r.category == "Entertainment: Video Games" || r.category == "Entertainment: Musicals & Theatres" || r.category == "Entertainment: Music" || r.category == "Entertainment: Television"  || r.category == "Entertainment: Cartoon & Animations" || r.category == "Entertainment: Japanese Anime & Manga" ){
+        buttonNoTranslate()
+      }
+    }
+      timeLeft = 20
+    
+
+
+
+    difficulty = r.difficulty
+    difficulty_tag_label.innerText = "Difficulty: " + difficulty;
+
+    let questionText = htmlEntities(r.question);
+    question_label.innerText = questionText;
+
+    questionList = r.tabSend;
+    buttonFill(r.type);
+    hideAnimation();
+
+    }
+  });
+
 function buttonNoTranslate(){
-  for (let b of buttons) {
-    b.classList.add("notranslate")
+  if(questionType == "multiple"){
+    for (let b of buttons) {
+      b.classList.add("notranslate")
+    }
   }
+
 }
 
 function buttonFill(type) {
@@ -148,12 +211,14 @@ function buttonFill(type) {
       b.value = questionList[i];
       i++;
     }
-  } else {
+  } else{
     ligne1.style.display = "none";
-    buttons[2].value = "True";
-    buttons[2].innerText = "Vrai";
     buttons[3].value = "False";
-    buttons[3].innerText = "Faux";
+    buttons[3].innerText = "false";
+    buttons[2].value = "True";
+    buttons[2].innerText = "true";
+
+
   }
 }
 
@@ -181,7 +246,6 @@ document.querySelectorAll(".quiz-button").forEach((button) => {
     timeLeft = -1
     if(clockTimeout != null){
       clearTimeout(clockTimeout)
-      console.log("test")
     }
     reveal(button)
   });
@@ -194,53 +258,26 @@ function disableButtons() {
   });
 }
 
-async function reveal(whichButton, timeouted = false) {
+async function reveal(clickedButton, isTimeOut = false) {
+
+  whichButton = clickedButton;
+  timeouted
 
   let urlAnswer = apiUrl + "/api/question/getFromId/" + id
   clockAudio.pause()
   clockAudio.currentTime = 0
 
 
-  let oldText = whichButton.innerText
+   oldText = whichButton.innerText
 
   printDots(whichButton)
-  let timeout = setInterval(() => printDots(whichButton), 800) 
+  timeout = setInterval(() => printDots(whichButton), 800) 
 
-  let xmlAnswer = new XMLHttpRequest()
 
   xmlAnswer.open("POST", urlAnswer, true)
   xmlAnswer.setRequestHeader("Authorization", localStorage.getItem("token"))
 
-   xmlAnswer.addEventListener("load", () => {
-     clearInterval(timeout)
-     whichButton.innerText = oldText
-
-    if (xmlAnswer.status != 201) { // On check si on a pas recu d'erreur
-      alert(`Error ${xmlAnswer.status}: ${xmlAnswer.statusText}`); 
-    } else { 
-      let reponse = JSON.parse(xmlAnswer.responseText)
-      let a = reponse.correct_answer
-
-
-      if(timeouted){
-        badAudio.play()
-      }
-    
-      const value = whichButton.value;
-
-
-      if (a === value) {
-        goodAudio.play()
-        whichButton.style.background = "green";
-        displayNextButton();
-      } else {
-        badAudio.play()
-        whichButton.classList.add("apply-shake");
-        whichButton.style.background = "red";
-        revealGreen(whichButton, a);
-      }
-    }
-  })
+   
   xmlAnswer.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xmlAnswer.send(JSON.stringify({
       "difficulty": difficulty,
@@ -252,6 +289,37 @@ async function reveal(whichButton, timeouted = false) {
   
   displayNextButton();
 }
+
+xmlAnswer.addEventListener("load", () => {
+  clearInterval(timeout)
+  whichButton.innerText = oldText
+
+ if (xmlAnswer.status != 201) { // On check si on a pas recu d'erreur
+   alert(`Error ${xmlAnswer.status}: ${xmlAnswer.statusText}`); 
+ } else { 
+   let reponse = JSON.parse(xmlAnswer.responseText)
+   let a = reponse.correct_answer
+
+
+   if(timeouted){
+     badAudio.play()
+   }
+ 
+   const value = whichButton.value;
+
+
+   if (a === value) {
+     goodAudio.play()
+     whichButton.style.background = "green";
+     displayNextButton();
+   } else {
+     badAudio.play()
+     whichButton.classList.add("apply-shake");
+     whichButton.style.background = "red";
+     revealGreen(whichButton, a);
+   }
+ }
+})
 
 function revealGreen(whichButton, a){
   if (questionType === "boolean") {
@@ -275,10 +343,6 @@ function displayNextButton() {
   categorie_label.style.display = "none";
   next_button.style.display = "block";
 }
-
-
-
-
 
 
 function displayQuestionIndex() {
@@ -326,3 +390,17 @@ function playClockAudio(){
   clockAudio.play()
 }
 
+function coolBorder(element){
+  val1 = randomIntFromInterval(40, 60)
+  val2 = randomIntFromInterval(40, 60)
+  val3 = randomIntFromInterval(40, 60)
+  val4 = randomIntFromInterval(40, 60)
+  val5 = randomIntFromInterval(40, 60)
+  val6 = randomIntFromInterval(40, 60)
+  val7 = randomIntFromInterval(40, 60)
+  val8 = randomIntFromInterval(40, 60)
+
+  element.style.borderRadius = `${val1}% ${val2}% ${val3}% ${val4}% / ${val5}% ${val6}% ${val7}% ${val8}%` 
+}
+
+displayData()
